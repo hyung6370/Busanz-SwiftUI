@@ -7,18 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9A93FFCEF6F2D8CBBF53173 /* Pods_Busanz_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */; };
 		F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */; };
 		F6344B1E2C60B268002857CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1D2C60B268002857CC /* ContentView.swift */; };
 		F6344B202C60B268002857CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B1F2C60B268002857CC /* Assets.xcassets */; };
 		F6344B232C60B268002857CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B222C60B268002857CC /* Preview Assets.xcassets */; };
+		F6344B2F2C60B484002857CC /* Font in Resources */ = {isa = PBXBuildFile; fileRef = F6344B2E2C60B484002857CC /* Font */; };
+		F6344B322C60B712002857CC /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6344B312C60B712002857CC /* Secret.plist */; };
+		F6344B352C60B747002857CC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F6344B342C60B747002857CC /* .gitignore */; };
+		F6344B382C60C503002857CC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B372C60C503002857CC /* MapView.swift */; };
+		F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B392C60C975002857CC /* Coordinator.swift */; };
+		F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0042C64997200EEC18B /* AppDelegate.swift */; };
+		F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9012A53B5D580BFCE29CB39B /* Pods-Busanz-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Busanz_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F6344B182C60B268002857CC /* Busanz-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Busanz-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIApp.swift; sourceTree = "<group>"; };
 		F6344B1D2C60B268002857CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6344B1F2C60B268002857CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6344B222C60B268002857CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6344B2E2C60B484002857CC /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Font; sourceTree = "<group>"; };
+		F6344B302C60B49D002857CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6344B312C60B712002857CC /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		F6344B342C60B747002857CC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F6344B372C60C503002857CC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F6344B392C60C975002857CC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F65CF0042C64997200EEC18B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HIDEKEY++Bundle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +45,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A93FFCEF6F2D8CBBF53173 /* Pods_Busanz_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710097ECF9E82AE5AE67AA37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */,
+				9012A53B5D580BFCE29CB39B /* Pods-Busanz-SwiftUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B26403227BA524CE621A9A9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6344B0F2C60B268002857CC = {
 			isa = PBXGroup;
 			children = (
+				F6344B342C60B747002857CC /* .gitignore */,
 				F6344B1A2C60B268002857CC /* Busanz-SwiftUI */,
 				F6344B192C60B268002857CC /* Products */,
+				710097ECF9E82AE5AE67AA37 /* Pods */,
+				B26403227BA524CE621A9A9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,9 +91,14 @@
 		F6344B1A2C60B268002857CC /* Busanz-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */,
-				F6344B1D2C60B268002857CC /* ContentView.swift */,
-				F6344B1F2C60B268002857CC /* Assets.xcassets */,
+				F6344B302C60B49D002857CC /* Info.plist */,
+				F6344B312C60B712002857CC /* Secret.plist */,
+				F6344B2D2C60B2CF002857CC /* App */,
+				F6344B292C60B28E002857CC /* Model */,
+				F6344B2A2C60B298002857CC /* Present */,
+				F6344B2B2C60B2AA002857CC /* Service */,
+				F65CF0062C649B9B00EEC18B /* Extension */,
+				F6344B2C2C60B2C3002857CC /* Resource */,
 				F6344B212C60B268002857CC /* Preview Content */,
 			);
 			path = "Busanz-SwiftUI";
@@ -67,6 +112,64 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F6344B292C60B28E002857CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6344B2A2C60B298002857CC /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				F6344B362C60C4DC002857CC /* MapUI */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		F6344B2B2C60B2AA002857CC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F6344B2C2C60B2C3002857CC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F6344B2E2C60B484002857CC /* Font */,
+				F6344B1F2C60B268002857CC /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6344B2D2C60B2CF002857CC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F65CF0042C64997200EEC18B /* AppDelegate.swift */,
+				F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */,
+				F6344B1D2C60B268002857CC /* ContentView.swift */,
+				F6344B392C60C975002857CC /* Coordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F6344B362C60C4DC002857CC /* MapUI */ = {
+			isa = PBXGroup;
+			children = (
+				F6344B372C60C503002857CC /* MapView.swift */,
+			);
+			path = MapUI;
+			sourceTree = "<group>";
+		};
+		F65CF0062C649B9B00EEC18B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6344B262C60B268002857CC /* Build configuration list for PBXNativeTarget "Busanz-SwiftUI" */;
 			buildPhases = (
+				B4D5A66FB59BAC01B3BC2A7C /* [CP] Check Pods Manifest.lock */,
 				F6344B142C60B268002857CC /* Sources */,
 				F6344B152C60B268002857CC /* Frameworks */,
 				F6344B162C60B268002857CC /* Resources */,
+				F9F81460DDD8442426F35997 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,19 +230,68 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6344B352C60B747002857CC /* .gitignore in Resources */,
+				F6344B322C60B712002857CC /* Secret.plist in Resources */,
 				F6344B232C60B268002857CC /* Preview Assets.xcassets in Resources */,
+				F6344B2F2C60B484002857CC /* Font in Resources */,
 				F6344B202C60B268002857CC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B4D5A66FB59BAC01B3BC2A7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Busanz-SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9F81460DDD8442426F35997 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6344B142C60B268002857CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */,
 				F6344B1E2C60B268002857CC /* ContentView.swift in Sources */,
+				F6344B382C60C503002857CC /* MapView.swift in Sources */,
+				F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */,
+				F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */,
 				F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,7 +336,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -245,7 +399,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -266,6 +420,7 @@
 		};
 		F6344B272C60B268002857CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,6 +430,7 @@
 				DEVELOPMENT_TEAM = 7DVWGZFH6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Busanz-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,6 +451,7 @@
 		};
 		F6344B282C60B268002857CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9012A53B5D580BFCE29CB39B /* Pods-Busanz-SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -304,6 +461,7 @@
 				DEVELOPMENT_TEAM = 7DVWGZFH6N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Busanz-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

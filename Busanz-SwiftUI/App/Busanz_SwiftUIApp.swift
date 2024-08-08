@@ -1,0 +1,19 @@
+//
+//  Busanz_SwiftUIApp.swift
+//  Busanz-SwiftUI
+//
+//  Created by Hyungjun KIM on 8/5/24.
+//
+
+import SwiftUI
+
+@main
+struct Busanz_SwiftUIApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}

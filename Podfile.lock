@@ -1,0 +1,60 @@
+PODS:
+  - Alamofire (5.9.1)
+  - IQKeyboardManagerSwift (7.1.1)
+  - lottie-ios (4.5.0)
+  - NMapsGeometry (1.0.2)
+  - NMapsMap (3.19.0):
+    - NMapsGeometry
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SDWebImage (5.19.4):
+    - SDWebImage/Core (= 5.19.4)
+  - SDWebImage/Core (5.19.4)
+  - SnapKit (5.7.1)
+  - Then (3.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - lottie-ios
+  - NMapsMap
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - SDWebImage (~> 5.0)
+  - SnapKit
+  - Then
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - NMapsGeometry
+    - NMapsMap
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SnapKit
+    - Then
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
+  lottie-ios: a881093fab623c467d3bce374367755c272bdd59
+  NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
+  NMapsMap: 99c10429d93340780b6f88d3fc7c0a3850b43664
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: 066c47b573f408f18caa467d71deace7c0f8280d
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+
+PODFILE CHECKSUM: 48bfdd9169aa4d8e3292a4927ed9e08dd1e3587f
+
+COCOAPODS: 1.15.2
