@@ -22,6 +22,7 @@
 		F6EE3F692C65950B0035B066 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F682C65950B0035B066 /* MapViewModel.swift */; };
 		F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6A2C65951A0035B066 /* Restaurant.swift */; };
 		F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */; };
+		F6EE3F6F2C65F9390035B066 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6E2C65F9390035B066 /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F6EE3F682C65950B0035B066 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F6EE3F6A2C65951A0035B066 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanRestaurantKorManager.swift; sourceTree = "<group>"; };
+		F6EE3F6E2C65F9390035B066 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				F6EE3F6A2C65951A0035B066 /* Restaurant.swift */,
+				F6EE3F6E2C65F9390035B066 /* APIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */,
 				F6344B1E2C60B268002857CC /* ContentView.swift in Sources */,
 				F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */,
+				F6EE3F6F2C65F9390035B066 /* APIResponse.swift in Sources */,
 				F6344B382C60C503002857CC /* MapView.swift in Sources */,
 				F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */,
 				F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */,

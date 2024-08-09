@@ -7,12 +7,13 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 class BusanRestaurantKorManager {
     private let baseURL = "http://apis.data.go.kr/6260000/FoodService/getFoodKr"
-    private let serviceKey = Bundle.main.DATA_ENCODING_KEY
+    private let serviceKey = Bundle.main.DATA_DECODING_KEY
     
-    func fetchRestaruants(completion: @escaping ([Restaurant]?) -> Void) {
+    func fetchRestaurants() -> AnyPublisher<[Restaurant], Error> {
         let parameters: Parameters = [
             "serviceKey": serviceKey,
             "numOfRows": 10,
@@ -20,22 +21,18 @@ class BusanRestaurantKorManager {
             "resultType": "json"
         ]
         
-        AF.request(baseURL, parameters: parameters).responseDecodable(of: APIResponse.self) { response in
-            switch response.result {
-            case .success(let apiResponse):
-                completion(apiResponse.body.items)
-            case .failure(let error):
-                print("Error fetching restaruants: \(error)")
-                completion(nil)
+        return AF.request(baseURL, parameters: parameters)
+            .publishData()
+            .tryMap { response in
+                guard let data = response.data else {
+                    throw URLError(.badServerResponse)
+                }
+                
+                let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
+                return apiResponse.getFoodKr.item
             }
-        }
+            .eraseToAnyPublisher()
     }
 }
 
-struct APIResponse: Codable {
-    let body: ResponseBody
-}
 
-struct ResponseBody: Codable {
-    let items: [Restaurant]
-}

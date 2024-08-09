@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class MapViewModel: ObservableObject {
     @Published var restaurants: [Restaurant] = []
@@ -13,23 +14,23 @@ class MapViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     
     private let restaurantManager = BusanRestaurantKorManager()
+    private var cancellables = Set<AnyCancellable>()
     
     func fetchRestaurants() {
-        self.isLoading = true
-        self.errorMessage = nil
+        isLoading = true
+        errorMessage = nil
         
-        restaurantManager.fetchRestaruants { [weak self] restaurants in
-            DispatchQueue.main.async {
+        restaurantManager.fetchRestaurants()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
                 self?.isLoading = false
-                
-                if let restaurants = restaurants {
-                    self?.restaurants = restaurants
-                    print(restaurants)
+                if case .failure(let error) = completion {
+                    self?.errorMessage = "데이터를 가져오는 데 실패했습니다: \(error.localizedDescription)"
                 }
-                else {
-                    self?.errorMessage = "데이터를 가져오는 데 실패했습니다."
-                }
+            } receiveValue: { [weak self] restaurants in
+                self?.restaurants = restaurants
+                print(restaurants)
             }
-        }
+            .store(in: &cancellables)
     }
 }

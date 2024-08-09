@@ -6,19 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     @StateObject var coordinator: Coordinator = Coordinator.shared
+    @StateObject private var viewModel = MapViewModel()
         
     var body: some View {
         VStack {
-            NaverMap()
-                .ignoresSafeArea(.all)
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+            }
+            else {
+                NaverMap()
+                    .ignoresSafeArea(.all)
+            }
         }
         .onAppear {
             Coordinator.shared.checkIfLocationServiceIsEnabled()
+            viewModel.fetchRestaurants()
         }
-//        .padding()
+        .padding(.top, 50)
     }
 }
 
