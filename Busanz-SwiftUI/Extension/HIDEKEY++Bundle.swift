@@ -35,4 +35,32 @@ extension Bundle {
             return value
         }
     }
+    
+    var DATA_ENCODING_KEY: String {
+        get {
+            guard let filePath = Bundle.main.path(forResource: "Secret", ofType: "plist") else {
+                fatalError("Couldn't find file 'Secret.plist'.")
+            }
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            guard let value = plist?.object(forKey: "DATA_ENCODING_KEY") as? String else {
+                fatalError("Couldn't find key 'DATA_ENCODING_KEY' in 'Secret.plist'.")
+            }
+            return value
+        }
+    }
+    
+    var DATA_DECODING_KEY: String {
+        get {
+            guard let filePath = Bundle.main.path(forResource: "Secret", ofType: "plist") else {
+                fatalError("Couldn't find file 'Secret.plist'.")
+            }
+            let plist = NSDictionary(contentsOfFile: filePath)
+            
+            guard let value = plist?.object(forKey: "DATA_DECODING_KEY") as? String else {
+                fatalError("Couldn't find key 'DATA_DECODING_KEY' in 'Secret.plist'.")
+            }
+            return value
+        }
+    }
 }

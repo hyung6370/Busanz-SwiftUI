@@ -13,12 +13,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NaverMap()
-                .ignoresSafeArea(.all, edges: .top)
+                .ignoresSafeArea(.all)
         }
         .onAppear {
             Coordinator.shared.checkIfLocationServiceIsEnabled()
         }
-        .padding()
+//        .padding()
     }
 }
 

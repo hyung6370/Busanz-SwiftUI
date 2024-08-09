@@ -19,6 +19,9 @@
 		F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B392C60C975002857CC /* Coordinator.swift */; };
 		F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0042C64997200EEC18B /* AppDelegate.swift */; };
 		F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */; };
+		F6EE3F692C65950B0035B066 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F682C65950B0035B066 /* MapViewModel.swift */; };
+		F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6A2C65951A0035B066 /* Restaurant.swift */; };
+		F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		F6344B392C60C975002857CC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F65CF0042C64997200EEC18B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HIDEKEY++Bundle.swift"; sourceTree = "<group>"; };
+		F6EE3F682C65950B0035B066 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F6EE3F6A2C65951A0035B066 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanRestaurantKorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		F6344B292C60B28E002857CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F6EE3F6A2C65951A0035B066 /* Restaurant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +137,7 @@
 		F6344B2B2C60B2AA002857CC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F6344B372C60C503002857CC /* MapView.swift */,
+				F6EE3F682C65950B0035B066 /* MapViewModel.swift */,
 			);
 			path = MapUI;
 			sourceTree = "<group>";
@@ -289,8 +298,11 @@
 			files = (
 				F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */,
 				F6344B1E2C60B268002857CC /* ContentView.swift in Sources */,
+				F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */,
 				F6344B382C60C503002857CC /* MapView.swift in Sources */,
 				F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */,
+				F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */,
+				F6EE3F692C65950B0035B066 /* MapViewModel.swift in Sources */,
 				F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */,
 				F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */,
 			);
