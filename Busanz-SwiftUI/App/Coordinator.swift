@@ -26,12 +26,12 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     override init() {
         super.init()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.setInitialCameraPosition()
+        }
+        
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
-        
-        view.mapView.zoomLevel = 15 // 기본 맵이 표시될 때 줌 레벨
-        view.mapView.minZoomLevel = 1
-        view.mapView.maxZoomLevel = 17 //17
         
         view.showLocationButton = true // 현위치 버튼
         view.showZoomControls = true   // 줌 버튼
@@ -42,15 +42,35 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
         view.mapView.touchDelegate = self
     }
     
+    private func setInitialCameraPosition() {
+        let busanCenter = NMGLatLng(lat: 35.1796, lng: 129.0756)
+        let southWest = NMGLatLng(lat: 34.9170, lng: 128.8226)
+        let northEast = NMGLatLng(lat: 35.4062, lng: 129.2904)
+        
+        let busanBounds = NMGLatLngBounds(southWest: southWest, northEast: northEast)
+        view.mapView.extent = busanBounds
+        
+        let cameraUpdate = NMFCameraUpdate(scrollTo: busanCenter, zoomTo: 10)
+        view.mapView.moveCamera(cameraUpdate)
+    }
+    
     func addMarkers(for restaurants: [Restaurant]) {
-        markers.forEach { $0.mapView = nil }
-        markers.removeAll()
+        markers.forEach { $0.mapView = nil } // 기존 마커 제거
+        markers.removeAll() // 마커 배열 초기화
         
         for restaurant in restaurants {
             let marker = NMFMarker()
             marker.position = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
-            marker.mapView = view.mapView
             
+            // 마커의 아이콘 설정 (선택 사항)
+            if let image = UIImage(named: "ResMarker") {
+                let resizedImage = image.resized(to: CGSize(width: 30, height: 30))
+                marker.iconImage = NMFOverlayImage(image: resizedImage!)
+            }
+            
+            marker.mapView = view.mapView // 마커를 맵에 추가
+            
+            // 마커 클릭 이벤트 처리 (선택 사항)
             marker.touchHandler = { [weak self] (overlay) -> Bool in
                 guard let self = self else { return true }
                 
@@ -69,7 +89,7 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
                 return true
             }
             
-            markers.append(marker)
+            markers.append(marker) // 마커 배열에 추가
         }
     }
     

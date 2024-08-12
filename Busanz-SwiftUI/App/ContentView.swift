@@ -26,7 +26,6 @@ struct ContentView: View {
             Coordinator.shared.checkIfLocationServiceIsEnabled()
             viewModel.fetchRestaurants()
         }
-//        .padding(.top, 50)
     }
 }
 

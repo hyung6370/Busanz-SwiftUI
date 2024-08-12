@@ -16,7 +16,7 @@ class BusanRestaurantKorManager {
     func fetchRestaurants() -> AnyPublisher<[Restaurant], Error> {
         let parameters: Parameters = [
             "serviceKey": serviceKey,
-            "numOfRows": 10,
+            "numOfRows": 250,
             "pageNo": 1,
             "resultType": "json"
         ]
@@ -34,5 +34,3 @@ class BusanRestaurantKorManager {
             .eraseToAnyPublisher()
     }
 }
-
-
