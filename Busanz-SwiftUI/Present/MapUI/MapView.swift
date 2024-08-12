@@ -10,6 +10,7 @@ import NMapsMap
 import CoreLocation
 
 struct NaverMap: UIViewRepresentable {
+    @Binding var restaurants: [Restaurant]
     
     func makeCoordinator() -> Coordinator {
         Coordinator.shared
@@ -19,5 +20,7 @@ struct NaverMap: UIViewRepresentable {
         context.coordinator.getNaverMapView()
     }
     
-    func updateUIView(_ uiView: NMFNaverMapView, context: Context) { }
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+        context.coordinator.addMarkers(for: restaurants)
+    }
 }

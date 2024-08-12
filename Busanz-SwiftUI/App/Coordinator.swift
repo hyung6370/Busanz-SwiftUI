@@ -19,6 +19,10 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     
     let view = NMFNaverMapView(frame: .zero)
     
+    private var markers: [NMFMarker] = []
+    
+    private var currentInfoWindow: NMFInfoWindow?
+    
     override init() {
         super.init()
         
@@ -27,7 +31,7 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
         
         view.mapView.zoomLevel = 15 // 기본 맵이 표시될 때 줌 레벨
         view.mapView.minZoomLevel = 1
-        view.mapView.maxZoomLevel = 17
+        view.mapView.maxZoomLevel = 17 //17
         
         view.showLocationButton = true // 현위치 버튼
         view.showZoomControls = true   // 줌 버튼
@@ -36,6 +40,37 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
         
         view.mapView.addCameraDelegate(delegate: self)
         view.mapView.touchDelegate = self
+    }
+    
+    func addMarkers(for restaurants: [Restaurant]) {
+        markers.forEach { $0.mapView = nil }
+        markers.removeAll()
+        
+        for restaurant in restaurants {
+            let marker = NMFMarker()
+            marker.position = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
+            marker.mapView = view.mapView
+            
+            marker.touchHandler = { [weak self] (overlay) -> Bool in
+                guard let self = self else { return true }
+                
+                if let currentInfoWindow = self.currentInfoWindow {
+                    currentInfoWindow.close()
+                }
+                
+                let infoWindow = NMFInfoWindow()
+                let dataSource = NMFInfoWindowDefaultTextSource.data()
+                dataSource.title = restaurant.title
+                infoWindow.dataSource = dataSource
+                infoWindow.open(with: marker)
+                
+                self.currentInfoWindow = infoWindow
+                
+                return true
+            }
+            
+            markers.append(marker)
+        }
     }
     
     func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {

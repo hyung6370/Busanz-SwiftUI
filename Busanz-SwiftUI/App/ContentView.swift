@@ -18,7 +18,7 @@ struct ContentView: View {
                 ProgressView("Loading...")
             }
             else {
-                NaverMap()
+                NaverMap(restaurants: $viewModel.restaurants)
                     .ignoresSafeArea(.all)
             }
         }
@@ -26,7 +26,7 @@ struct ContentView: View {
             Coordinator.shared.checkIfLocationServiceIsEnabled()
             viewModel.fetchRestaurants()
         }
-        .padding(.top, 50)
+//        .padding(.top, 50)
     }
 }
 
