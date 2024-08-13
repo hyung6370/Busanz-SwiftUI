@@ -15,13 +15,14 @@ struct ContentView: View {
     @State private var selectedGugun: String? = nil
         
     var body: some View {
+        
         ZStack(alignment: .topLeading) {
             VStack {
                 if viewModel.isLoading {
                     ProgressView("Loading...")
                 }
                 else {
-                    NaverMap(restaurants: $viewModel.restaurants)
+                    NaverMap(restaurants: $viewModel.filteredRestaurants)
                         .ignoresSafeArea(.all)
                 }
             }

@@ -23,9 +23,11 @@ struct FloatingFilterView: View {
                 }) {
                     Text(selectedGugun ?? "구/군별로 보기")
                         .frame(width: 100, height: 30)
-                        .background(Color.black)
-                        .foregroundColor(Color.white)
+                        .background(Color.white)
+                        .foregroundColor(Color.black)
                         .cornerRadius(15)
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                        .font(.notosansBold16)
                 }
             }
             .sheet(isPresented: $isPickerVisible) {
