@@ -11,20 +11,32 @@ import Combine
 struct ContentView: View {
     @StateObject var coordinator: Coordinator = Coordinator.shared
     @StateObject private var viewModel = MapViewModel()
+    
+    @State private var selectedGugun: String? = nil
         
     var body: some View {
-        VStack {
-            if viewModel.isLoading {
-                ProgressView("Loading...")
+        ZStack(alignment: .topLeading) {
+            VStack {
+                if viewModel.isLoading {
+                    ProgressView("Loading...")
+                }
+                else {
+                    NaverMap(restaurants: $viewModel.restaurants)
+                        .ignoresSafeArea(.all)
+                }
             }
-            else {
-                NaverMap(restaurants: $viewModel.restaurants)
-                    .ignoresSafeArea(.all)
+            .onAppear {
+                Coordinator.shared.checkIfLocationServiceIsEnabled()
+                viewModel.fetchRestaurants()
             }
-        }
-        .onAppear {
-            Coordinator.shared.checkIfLocationServiceIsEnabled()
-            viewModel.fetchRestaurants()
+            
+            if !viewModel.isLoading {
+                FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
+                    viewModel.filterRestaurants(by: gugun)
+                }
+                .padding()
+                .transition(.opacity)
+            }
         }
     }
 }

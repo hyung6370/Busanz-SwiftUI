@@ -10,6 +10,7 @@ import Combine
 
 class MapViewModel: ObservableObject {
     @Published var restaurants: [Restaurant] = []
+    @Published var filteredRestaurants: [Restaurant] = []
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
     
@@ -32,5 +33,19 @@ class MapViewModel: ObservableObject {
                 print(restaurants)
             }
             .store(in: &cancellables)
+    }
+    
+    func filterRestaurants(by gugun: String?) {
+        if let gugun = gugun {
+            filteredRestaurants = restaurants.filter { $0.gugunNm == gugun }
+        }
+        else {
+            filteredRestaurants = restaurants
+        }
+    }
+    
+    func getGugunList() -> [String] {
+        let gugunSet = Set(restaurants.map { $0.gugunNm })
+        return Array(gugunSet).sorted()
     }
 }
