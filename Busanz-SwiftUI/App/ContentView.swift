@@ -34,6 +34,8 @@ struct ContentView: View {
             if !viewModel.isLoading {
                 FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
                     viewModel.filterRestaurants(by: gugun)
+                } onCountSelected: { count in
+                    viewModel.filterRestaurants(byCount: count)
                 }
                 .padding()
                 .transition(.opacity)

@@ -17,6 +17,9 @@ class MapViewModel: ObservableObject {
     private let restaurantManager = BusanRestaurantKorManager()
     private var cancellables = Set<AnyCancellable>()
     
+    private var selectedGugun: String? = nil
+    private var selectedCount: Int = Int.max
+    
     func fetchRestaurants() {
         isLoading = true
         errorMessage = nil
@@ -30,18 +33,45 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
-                self?.filteredRestaurants = restaurants
+//                self?.filteredRestaurants = restaurants
+                self?.applyFilters()
             }
             .store(in: &cancellables)
     }
     
+//    func filterRestaurants(by gugun: String?) {
+//        if let gugun = gugun {
+//            filteredRestaurants = restaurants.filter { $0.gugunNm == gugun }
+//        }
+//        else {
+//            filteredRestaurants = restaurants
+//        }
+//    }
+    
     func filterRestaurants(by gugun: String?) {
-        if let gugun = gugun {
-            filteredRestaurants = restaurants.filter { $0.gugunNm == gugun }
+        selectedGugun = gugun
+        applyFilters()
+    }
+    
+    func filterRestaurants(byCount count: Int) {
+        selectedCount = count
+        applyFilters()
+    }
+    
+    private func applyFilters() {
+        var filtered = restaurants
+        
+        // 구군별 필터링 적용
+        if let gugun = selectedGugun {
+            filtered = filtered.filter { $0.gugunNm == gugun }
         }
-        else {
-            filteredRestaurants = restaurants
+        
+        // 개수별 필터링 적용
+        if selectedCount != Int.max {
+            filtered = Array(filtered.prefix(selectedCount))
         }
+        
+        filteredRestaurants = filtered
     }
     
     func getGugunList() -> [String] {

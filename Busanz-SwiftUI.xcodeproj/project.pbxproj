@@ -12,11 +12,17 @@
 		F6344B1E2C60B268002857CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1D2C60B268002857CC /* ContentView.swift */; };
 		F6344B202C60B268002857CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B1F2C60B268002857CC /* Assets.xcassets */; };
 		F6344B232C60B268002857CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B222C60B268002857CC /* Preview Assets.xcassets */; };
-		F6344B2F2C60B484002857CC /* Font in Resources */ = {isa = PBXBuildFile; fileRef = F6344B2E2C60B484002857CC /* Font */; };
 		F6344B322C60B712002857CC /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6344B312C60B712002857CC /* Secret.plist */; };
 		F6344B352C60B747002857CC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F6344B342C60B747002857CC /* .gitignore */; };
 		F6344B382C60C503002857CC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B372C60C503002857CC /* MapView.swift */; };
 		F6344B3A2C60C975002857CC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B392C60C975002857CC /* Coordinator.swift */; };
+		F64E83FA2C6B535100865A5D /* NotoSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F22C6B535100865A5D /* NotoSansKR-Bold.ttf */; };
+		F64E83FB2C6B535100865A5D /* NotoSansKR-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F32C6B535100865A5D /* NotoSansKR-ExtraLight.ttf */; };
+		F64E83FC2C6B535100865A5D /* NotoSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F42C6B535100865A5D /* NotoSansKR-Light.ttf */; };
+		F64E83FD2C6B535100865A5D /* NotoSansKR-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F52C6B535100865A5D /* NotoSansKR-Medium.ttf */; };
+		F64E83FE2C6B535100865A5D /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F62C6B535100865A5D /* NotoSansKR-Regular.ttf */; };
+		F64E83FF2C6B535100865A5D /* NotoSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F72C6B535100865A5D /* NotoSansKR-SemiBold.ttf */; };
+		F64E84002C6B535100865A5D /* NotoSansKR-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */; };
 		F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0042C64997200EEC18B /* AppDelegate.swift */; };
 		F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */; };
 		F69931E12C698EB8003141A8 /* DetailResInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69931E02C698EB8003141A8 /* DetailResInfoViewModel.swift */; };
@@ -39,12 +45,18 @@
 		F6344B1D2C60B268002857CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6344B1F2C60B268002857CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6344B222C60B268002857CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F6344B2E2C60B484002857CC /* Font */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Font; sourceTree = "<group>"; };
 		F6344B302C60B49D002857CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6344B312C60B712002857CC /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		F6344B342C60B747002857CC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F6344B372C60C503002857CC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F6344B392C60C975002857CC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F64E83F22C6B535100865A5D /* NotoSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.ttf"; sourceTree = "<group>"; };
+		F64E83F32C6B535100865A5D /* NotoSansKR-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-ExtraLight.ttf"; sourceTree = "<group>"; };
+		F64E83F42C6B535100865A5D /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
+		F64E83F52C6B535100865A5D /* NotoSansKR-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.ttf"; sourceTree = "<group>"; };
+		F64E83F62C6B535100865A5D /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
+		F64E83F72C6B535100865A5D /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
+		F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.ttf"; sourceTree = "<group>"; };
 		F65CF0042C64997200EEC18B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HIDEKEY++Bundle.swift"; sourceTree = "<group>"; };
 		F69931E02C698EB8003141A8 /* DetailResInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResInfoViewModel.swift; sourceTree = "<group>"; };
@@ -159,7 +171,7 @@
 		F6344B2C2C60B2C3002857CC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				F6344B2E2C60B484002857CC /* Font */,
+				F64E83F92C6B535100865A5D /* NotoSansKR */,
 				F6344B1F2C60B268002857CC /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -186,6 +198,20 @@
 			path = MapUI;
 			sourceTree = "<group>";
 		};
+		F64E83F92C6B535100865A5D /* NotoSansKR */ = {
+			isa = PBXGroup;
+			children = (
+				F64E83F22C6B535100865A5D /* NotoSansKR-Bold.ttf */,
+				F64E83F32C6B535100865A5D /* NotoSansKR-ExtraLight.ttf */,
+				F64E83F42C6B535100865A5D /* NotoSansKR-Light.ttf */,
+				F64E83F52C6B535100865A5D /* NotoSansKR-Medium.ttf */,
+				F64E83F62C6B535100865A5D /* NotoSansKR-Regular.ttf */,
+				F64E83F72C6B535100865A5D /* NotoSansKR-SemiBold.ttf */,
+				F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */,
+			);
+			path = NotoSansKR;
+			sourceTree = "<group>";
+		};
 		F65CF0062C649B9B00EEC18B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +225,8 @@
 		F69931DD2C698E76003141A8 /* DetailResInfoUI */ = {
 			isa = PBXGroup;
 			children = (
-				F69931E02C698EB8003141A8 /* DetailResInfoViewModel.swift */,
 				F69931E22C698ECD003141A8 /* DetailResInfoView.swift */,
+				F69931E02C698EB8003141A8 /* DetailResInfoViewModel.swift */,
 			);
 			path = DetailResInfoUI;
 			sourceTree = "<group>";
@@ -273,11 +299,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F64E83FF2C6B535100865A5D /* NotoSansKR-SemiBold.ttf in Resources */,
 				F6344B352C60B747002857CC /* .gitignore in Resources */,
+				F64E83FA2C6B535100865A5D /* NotoSansKR-Bold.ttf in Resources */,
 				F6344B322C60B712002857CC /* Secret.plist in Resources */,
+				F64E83FD2C6B535100865A5D /* NotoSansKR-Medium.ttf in Resources */,
 				F6344B232C60B268002857CC /* Preview Assets.xcassets in Resources */,
-				F6344B2F2C60B484002857CC /* Font in Resources */,
+				F64E83FB2C6B535100865A5D /* NotoSansKR-ExtraLight.ttf in Resources */,
 				F6344B202C60B268002857CC /* Assets.xcassets in Resources */,
+				F64E84002C6B535100865A5D /* NotoSansKR-Thin.ttf in Resources */,
+				F64E83FC2C6B535100865A5D /* NotoSansKR-Light.ttf in Resources */,
+				F64E83FE2C6B535100865A5D /* NotoSansKR-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
