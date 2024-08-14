@@ -32,7 +32,7 @@ struct FloatingFilterView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(15)
                         .shadow(color: .gray, radius: 5, x: 0, y: 2)
-                        .font(.notosansMedium16)
+                        .font(.notosansMedium14)
                 }
             }
             .sheet(isPresented: $isPickerVisible) {
@@ -55,7 +55,7 @@ struct FloatingFilterView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(15)
                         .shadow(color: .gray, radius: 5, x: 0, y: 2)
-                        .font(.custom("NotoSansCJKkr-Regular", size: 16))
+                        .font(.notosansMedium14)
                 }
             }
             .actionSheet(isPresented: $isCountPickerVisible) {

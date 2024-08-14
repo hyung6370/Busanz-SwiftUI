@@ -33,20 +33,10 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
-//                self?.filteredRestaurants = restaurants
                 self?.applyFilters()
             }
             .store(in: &cancellables)
     }
-    
-//    func filterRestaurants(by gugun: String?) {
-//        if let gugun = gugun {
-//            filteredRestaurants = restaurants.filter { $0.gugunNm == gugun }
-//        }
-//        else {
-//            filteredRestaurants = restaurants
-//        }
-//    }
     
     func filterRestaurants(by gugun: String?) {
         selectedGugun = gugun
