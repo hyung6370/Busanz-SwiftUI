@@ -13,6 +13,7 @@ struct ContentView: View {
     @StateObject private var viewModel = MapViewModel()
     
     @State private var selectedGugun: String? = nil
+    @State private var searchText: String = ""
         
     var body: some View {
         
@@ -32,13 +33,24 @@ struct ContentView: View {
             }
             
             if !viewModel.isLoading {
-                FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
-                    viewModel.filterRestaurants(by: gugun)
-                } onCountSelected: { count in
-                    viewModel.filterRestaurants(byCount: count)
+                VStack {
+                    SearchBarView(text: $searchText) {
+                        viewModel.filterRestaurants(bySearchText: searchText)
+                    }
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 20)
+                    
+                    Spacer()
+                
+                    FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
+                        viewModel.filterRestaurants(by: gugun)
+                    } onCountSelected: { count in
+                        viewModel.filterRestaurants(byCount: count)
+                    }
+                    .padding(.bottom, 35)
+                    .padding(.leading, 150)
+                    .transition(.opacity)
                 }
-                .padding()
-                .transition(.opacity)
             }
         }
     }

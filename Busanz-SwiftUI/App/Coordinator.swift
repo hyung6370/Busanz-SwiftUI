@@ -83,7 +83,6 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
                 dataSource.title = restaurant.title
                 infoWindow.dataSource = dataSource
                 infoWindow.open(with: marker)
-                
                 self.currentInfoWindow = infoWindow
                 
                 return true

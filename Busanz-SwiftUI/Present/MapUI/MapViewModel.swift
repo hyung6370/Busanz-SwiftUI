@@ -19,6 +19,7 @@ class MapViewModel: ObservableObject {
     
     private var selectedGugun: String? = nil
     private var selectedCount: Int = Int.max
+    private var searchText: String = ""
     
     func fetchRestaurants() {
         isLoading = true
@@ -33,6 +34,7 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
+                print(restaurants)
                 self?.applyFilters()
             }
             .store(in: &cancellables)
@@ -48,12 +50,22 @@ class MapViewModel: ObservableObject {
         applyFilters()
     }
     
+    func filterRestaurants(bySearchText text: String) {
+        searchText = text
+        applyFilters()
+    }
+    
     private func applyFilters() {
         var filtered = restaurants
         
         // 구군별 필터링 적용
         if let gugun = selectedGugun {
             filtered = filtered.filter { $0.gugunNm == gugun }
+        }
+        
+        // 검색어 필터링 적용
+        if !searchText.isEmpty {
+            filtered = filtered.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
         }
         
         // 개수별 필터링 적용
