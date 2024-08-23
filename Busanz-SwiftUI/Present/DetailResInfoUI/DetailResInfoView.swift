@@ -13,14 +13,21 @@ struct DetailResInfoView: View {
     var body: some View {
         VStack {
             if let restaurant = restaurant {
+                ZStack {
+                    Rectangle()
+                        .fill(Color.customOrange)
+                        .cornerRadius(15)
+                        .frame(width: 370, height: 440)
+                    
+                    NaverMapView(lat: restaurant.lat, lng: restaurant.lng)
+                        .padding([.leading, .trailing], 20)
+                        .frame(width: 380, height: 410)
+                }
                 
-                NaverMapView(lat: restaurant.lat, lng: restaurant.lng)
-                    .frame(height: 400)
                 
                 Text(restaurant.addr1)
-                    .font(.subheadline)
-                    .padding()
-                
+                    .font(.notosansBold24)
+                    
                 Text(restaurant.itemContent)
                     .padding()
                 
