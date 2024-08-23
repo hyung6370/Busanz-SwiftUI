@@ -40,6 +40,8 @@ struct SearchBarView: View {
             
             Button(action: onSearch) {
                 Text("검색")
+                    .font(.notosansMedium16)
+                    .foregroundColor(.black)
             }
             .padding(.trailing, 10)
         }

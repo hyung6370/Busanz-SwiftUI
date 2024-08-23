@@ -13,22 +13,20 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
+    @Published var selectedRestaurant: Restaurant? = nil
     
     var locationManager: CLLocationManager?
     let startInfoWindow = NMFInfoWindow()
-    
     let view = NMFNaverMapView(frame: .zero)
-    
     private var markers: [NMFMarker] = []
-    
     private var currentInfoWindow: NMFInfoWindow?
     
     override init() {
         super.init()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.setInitialCameraPosition()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.setInitialCameraPosition()
+//        }
         
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
@@ -42,17 +40,17 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
         view.mapView.touchDelegate = self
     }
     
-    private func setInitialCameraPosition() {
-        let busanCenter = NMGLatLng(lat: 35.1796, lng: 129.0756)
-        let southWest = NMGLatLng(lat: 34.9170, lng: 128.8226)
-        let northEast = NMGLatLng(lat: 35.4062, lng: 129.2904)
-        
-        let busanBounds = NMGLatLngBounds(southWest: southWest, northEast: northEast)
-        view.mapView.extent = busanBounds
-        
-        let cameraUpdate = NMFCameraUpdate(scrollTo: busanCenter, zoomTo: 10)
-        view.mapView.moveCamera(cameraUpdate)
-    }
+//    private func setInitialCameraPosition() {
+//        let busanCenter = NMGLatLng(lat: 35.1796, lng: 129.0756)
+//        let southWest = NMGLatLng(lat: 34.9170, lng: 128.8226)
+//        let northEast = NMGLatLng(lat: 35.4062, lng: 129.2904)
+//        
+//        let busanBounds = NMGLatLngBounds(southWest: southWest, northEast: northEast)
+//        view.mapView.extent = busanBounds
+//        
+//        let cameraUpdate = NMFCameraUpdate(scrollTo: busanCenter, zoomTo: 10)
+//        view.mapView.moveCamera(cameraUpdate)
+//    }
     
     func addMarkers(for restaurants: [Restaurant]) {
         markers.forEach { $0.mapView = nil } // 기존 마커 제거
@@ -84,6 +82,14 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
                 infoWindow.dataSource = dataSource
                 infoWindow.open(with: marker)
                 self.currentInfoWindow = infoWindow
+                
+                infoWindow.touchHandler = { [weak self] (overlay) -> Bool in
+                    guard let self = self else { return true }
+                    DispatchQueue.main.async {
+                        self.selectedRestaurant = restaurant
+                    }
+                    return true
+                }
                 
                 return true
             }
