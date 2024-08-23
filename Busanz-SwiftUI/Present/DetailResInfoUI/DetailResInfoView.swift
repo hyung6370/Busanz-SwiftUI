@@ -13,9 +13,9 @@ struct DetailResInfoView: View {
     var body: some View {
         VStack {
             if let restaurant = restaurant {
-                Text(restaurant.title)
-                    .font(.largeTitle)
-                    .padding()
+                
+                NaverMapView(lat: restaurant.lat, lng: restaurant.lng)
+                    .frame(height: 400)
                 
                 Text(restaurant.addr1)
                     .font(.subheadline)

@@ -35,6 +35,7 @@
 		F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6A2C65951A0035B066 /* Restaurant.swift */; };
 		F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */; };
 		F6EE3F6F2C65F9390035B066 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6E2C65F9390035B066 /* APIResponse.swift */; };
+		F6FF17572C78610700F6D813 /* NaverMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FF17562C78610700F6D813 /* NaverMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		F6EE3F6A2C65951A0035B066 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanRestaurantKorManager.swift; sourceTree = "<group>"; };
 		F6EE3F6E2C65F9390035B066 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		F6FF17562C78610700F6D813 /* NaverMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		F6344B2A2C60B298002857CC /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				F6FF17532C7860DF00F6D813 /* NaverMapUI */,
 				F6344B362C60C4DC002857CC /* MapUI */,
 				F69931DD2C698E76003141A8 /* DetailResInfoUI */,
 			);
@@ -248,6 +251,14 @@
 				F69931E62C69F323003141A8 /* FloatingFilterView.swift */,
 			);
 			path = FloatingFilterUI;
+			sourceTree = "<group>";
+		};
+		F6FF17532C7860DF00F6D813 /* NaverMapUI */ = {
+			isa = PBXGroup;
+			children = (
+				F6FF17562C78610700F6D813 /* NaverMapView.swift */,
+			);
+			path = NaverMapUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 				F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */,
 				F69931E52C69C245003141A8 /* UIImage++Ex.swift in Sources */,
 				F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */,
+				F6FF17572C78610700F6D813 /* NaverMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
