@@ -23,6 +23,7 @@
 		F64E83FE2C6B535100865A5D /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F62C6B535100865A5D /* NotoSansKR-Regular.ttf */; };
 		F64E83FF2C6B535100865A5D /* NotoSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F72C6B535100865A5D /* NotoSansKR-SemiBold.ttf */; };
 		F64E84002C6B535100865A5D /* NotoSansKR-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */; };
+		F65392A02C7D6CBC008C1CE7 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F653929F2C7D6CBC008C1CE7 /* ToastView.swift */; };
 		F657A18A2C76D119009DDB5A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657A1892C76D119009DDB5A /* SearchBarView.swift */; };
 		F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0042C64997200EEC18B /* AppDelegate.swift */; };
 		F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */; };
@@ -60,6 +61,7 @@
 		F64E83F62C6B535100865A5D /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
 		F64E83F72C6B535100865A5D /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
 		F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.ttf"; sourceTree = "<group>"; };
+		F653929F2C7D6CBC008C1CE7 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F657A1892C76D119009DDB5A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		F65CF0042C64997200EEC18B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65CF0072C649BB400EEC18B /* HIDEKEY++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HIDEKEY++Bundle.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				F6FF17532C7860DF00F6D813 /* NaverMapUI */,
 				F6344B362C60C4DC002857CC /* MapUI */,
 				F69931DD2C698E76003141A8 /* DetailResInfoUI */,
+				F653929E2C7D6B23008C1CE7 /* AlertUI */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -218,6 +221,14 @@
 				F64E83F82C6B535100865A5D /* NotoSansKR-Thin.ttf */,
 			);
 			path = NotoSansKR;
+			sourceTree = "<group>";
+		};
+		F653929E2C7D6B23008C1CE7 /* AlertUI */ = {
+			isa = PBXGroup;
+			children = (
+				F653929F2C7D6CBC008C1CE7 /* ToastView.swift */,
+			);
+			path = AlertUI;
 			sourceTree = "<group>";
 		};
 		F657A1882C76D0DB009DDB5A /* SearchBarUI */ = {
@@ -396,6 +407,7 @@
 				F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */,
 				F69931EA2C6AF9D9003141A8 /* Font+.swift in Sources */,
 				F6EE3F6F2C65F9390035B066 /* APIResponse.swift in Sources */,
+				F65392A02C7D6CBC008C1CE7 /* ToastView.swift in Sources */,
 				F6344B382C60C503002857CC /* MapView.swift in Sources */,
 				F6FF17592C786C7700F6D813 /* Color++Ex.swift in Sources */,
 				F65CF0082C649BB400EEC18B /* HIDEKEY++Bundle.swift in Sources */,
