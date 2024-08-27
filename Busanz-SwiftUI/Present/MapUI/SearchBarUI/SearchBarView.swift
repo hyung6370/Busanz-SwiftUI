@@ -16,8 +16,8 @@ struct SearchBarView: View {
             TextField("맛집을 입력해주세요.", text: $text, onCommit: onSearch)
                 .padding(7)
                 .padding(.horizontal, 25)
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
+                .background(Color.white)
+                .cornerRadius(15)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")

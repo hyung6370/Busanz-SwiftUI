@@ -52,6 +52,14 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
 //        view.mapView.moveCamera(cameraUpdate)
 //    }
     
+    func moveCameraToRestaurant(_ restaurant: Restaurant) {
+        let latLng = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: latLng, zoomTo: 15)
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 1.5
+        view.mapView.moveCamera(cameraUpdate)
+    }
+    
     func addMarkers(for restaurants: [Restaurant]) {
         markers.forEach { $0.mapView = nil } // 기존 마커 제거
         markers.removeAll() // 마커 배열 초기화
@@ -116,54 +124,54 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
      4. case .authorizedAlways(항상 허용), .authorizedWhenInUse(앱 사용중에만 허용)일 경우에만 fetchUserLocation() 호출
      */
     
+    func checkIfLocationServiceIsEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager = CLLocationManager()
+            self.locationManager!.delegate = self
+            self.checkLocationAuthorization()
+        } else {
+            print("Location services are not enabled. Show an alert to the user.")
+        }
+    }
+    
     func checkLocationAuthorization() {
-        guard let locationManager = locationManager else { return }
+        guard let locationManager = locationManager else {
+            print("Location manager is not initialized in checkLocationAuthorization")
+            return
+        }
+
+        print("Authorization status: \(locationManager.authorizationStatus.rawValue)")
         
         switch locationManager.authorizationStatus {
         case .notDetermined:
+            print("Requesting authorization...")
             locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("위치 정보 접근이 제한되었습니다.")
-        case .denied:
-            print("위치 정보 접근을 거절했습니다. 설정에 가서 변경하세요.")
+        case .restricted, .denied:
+            print("Location access is restricted or denied.")
         case .authorizedAlways, .authorizedWhenInUse:
-            print("Success")
-            
+            print("Location access authorized.")
             coord = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
-            userLocation = (Double(locationManager.location?.coordinate.latitude ?? 0.0), Double(locationManager.location?.coordinate.longitude ?? 0.0))
-            
+            userLocation = coord
             fetchUserLocation()
-        
         @unknown default:
             break
         }
     }
     
-    func checkIfLocationServiceIsEnabled() {
-        DispatchQueue.global().async {
-            if CLLocationManager.locationServicesEnabled() {
-                DispatchQueue.main.async {
-                    self.locationManager = CLLocationManager()
-                    self.locationManager!.delegate = self
-                    self.checkLocationAuthorization()
-                }
-            }
-            else {
-                print("Show an alert letting them know this is off and to go turn i on")
-            }
-        }
-    }
-    
     func fetchUserLocation() {
         if let locationManager = locationManager {
-            let lat = locationManager.location?.coordinate.latitude
-            let lng = locationManager.location?.coordinate.longitude
-            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0), zoomTo: 15)
+            guard let lat = locationManager.location?.coordinate.latitude,
+                  let lng = locationManager.location?.coordinate.longitude else {
+                print("Failed to get location") // 위치 정보 가져오기 실패 시 로그 출력
+                return
+            }
+            
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng), zoomTo: 15)
             cameraUpdate.animation = .easeIn
             cameraUpdate.animationDuration = 1
             
             let locationOverlay = view.mapView.locationOverlay
-            locationOverlay.location = NMGLatLng(lat: lat ?? 0.0, lng: lng ?? 0.0)
+            locationOverlay.location = NMGLatLng(lat: lat, lng: lng)
             locationOverlay.hidden = false
             
             locationOverlay.icon = NMFOverlayImage(name: "location_overlay_icon")
@@ -172,6 +180,8 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
             locationOverlay.anchor = CGPoint(x: 0.5, y: 1)
             
             view.mapView.moveCamera(cameraUpdate)
+        } else {
+            print("Location manager is not initialized")
         }
     }
     

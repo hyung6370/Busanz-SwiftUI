@@ -36,8 +36,15 @@ struct DetailResInfoView: View {
                                 .foregroundColor(.black)
                                 .font(.system(size: 16))
                                 .padding(.top, 3)
-                            Text("부산시 " + restaurant.addr1)
-                                .font(.notosansBold18)
+                            let busan = restaurant.addr1
+                            if busan.contains("부산시") {
+                                Text(restaurant.addr1)
+                                    .font(.notosansBold18)
+                            }
+                            else {
+                                Text("부산시 " + restaurant.addr1)
+                                    .font(.notosansBold18)
+                            }
                         }
                     }
                     .padding([.leading, .trailing], 15)
@@ -59,20 +66,73 @@ struct DetailResInfoView: View {
                                     .font(.system(size: 16))
                                 Link("\(restaurant.contactTel)", destination: URL(string: "tel://\(restaurant.contactTel)")!)
                                     .foregroundColor(.blue)
+                                    .padding(.bottom, 2)
                             }
                         }
                     }
                     .padding([.leading, .trailing], 15)
                     
-                    DisclosureGroup("운영 시간", isExpanded: $isExpanded) {
-                        Text(restaurant.usageDayWeekAndTime)
-                            .font(.notosansRegular12)
-                            .padding([.top, .bottom], 5)
-                            .padding([.leading, .trailing], 15)
+                    
+//                    VStack(alignment: .leading, spacing: 5) {
+//                        Text("운영 시간")
+//                            .font(.notosansBold16)
+//                            .padding(.leading, 3)
+//                        HStack(spacing: 4) {
+//                            Image(systemName: "clock")
+//                                .foregroundColor(.black)
+//                                .font(.system(size: 16))
+//                            DisclosureGroup("운영 시간", isExpanded: $isExpanded) {
+//                                Text(restaurant.usageDayWeekAndTime)
+//                                    .font(.notosansRegular14)
+//                            }
+//                            .padding(.bottom, 2)
+//                        }
+//                    }
+//                    .font(.notosansRegular16)
+//                    .padding([.leading, .trailing], 15)
+//                    .padding(.top, 10)
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("운영 시간")
+                            .font(.notosansBold16)
+                            .padding(.leading, 3)
+                            .foregroundColor(.black)
+                        
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock")
+                                .foregroundColor(.black)
+                                .font(.system(size: 16))
+                                .alignmentGuide(.top) { _ in 0 }
+                                .frame(height: 16)
+                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("운영 시간")
+                                        .font(.notosansBold16)
+                                    Spacer()
+                                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                        .foregroundColor(.black)
+                                }
+                                .onTapGesture {
+                                    withAnimation {
+                                        isExpanded.toggle()
+                                    }
+                                }
+                                
+                                if isExpanded {
+                                    Text(restaurant.usageDayWeekAndTime)
+                                        .font(.notosansRegular14)
+                                        .padding(.top, 2)
+                                }
+                            }
+                            .padding(.leading, 4)
+                            .padding(.bottom, 2)
+                        }
                     }
                     .font(.notosansRegular16)
-                    .padding([.leading, .trailing], 25)
-                    .padding(.bottom, 10)
+                    .padding([.leading, .trailing], 15)
+                    .padding(.top, 25)
+ 
                     
                     Spacer()
                 }

@@ -21,6 +21,8 @@ class MapViewModel: ObservableObject {
     private var selectedCount: Int = Int.max
     private var searchText: String = ""
     
+    var isInitialLoad: Bool = true
+    
     func fetchRestaurants() {
         isLoading = true
         errorMessage = nil
@@ -74,6 +76,14 @@ class MapViewModel: ObservableObject {
         }
         
         filteredRestaurants = filtered
+        
+        if isInitialLoad {
+            Coordinator.shared.fetchUserLocation()
+            isInitialLoad = false
+        }
+        else if let firstRestaurant = filtered.first {
+            Coordinator.shared.moveCameraToRestaurant(firstRestaurant)
+        }
     }
     
     func getGugunList() -> [String] {
