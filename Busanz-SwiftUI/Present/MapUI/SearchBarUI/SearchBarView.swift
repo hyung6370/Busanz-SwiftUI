@@ -13,7 +13,11 @@ struct SearchBarView: View {
     
     var body: some View {
         HStack {
-            TextField("맛집을 입력해주세요.", text: $text, onCommit: onSearch)
+            TextField("맛집을 입력해주세요.", text: $text, onCommit: {
+                if !text.isEmpty {
+                    onSearch()
+                }
+            })
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color.white)
@@ -38,7 +42,11 @@ struct SearchBarView: View {
                 )
                 .padding(.horizontal, 10)
             
-            Button(action: onSearch) {
+            Button(action: {
+                if !text.isEmpty {
+                    onSearch()
+                }
+            }) {
                 Text("검색")
                     .font(.notosansMedium16)
                     .foregroundColor(.black)

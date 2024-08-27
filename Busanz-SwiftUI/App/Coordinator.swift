@@ -15,6 +15,9 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @Published var selectedRestaurant: Restaurant? = nil
     
+    var savedCameraPosition: NMGLatLng?
+    var hasMovedToUserLocation = false
+    
     var locationManager: CLLocationManager?
     let startInfoWindow = NMFInfoWindow()
     let view = NMFNaverMapView(frame: .zero)
@@ -52,9 +55,31 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
 //        view.mapView.moveCamera(cameraUpdate)
 //    }
     
+    func saveCurrentCameraPosition() {
+        savedCameraPosition = view.mapView.cameraPosition.target
+        print("Saved Camera Position: \(String(describing: savedCameraPosition))")
+    }
+    
+    func restoreCameraPosition() {
+        guard let position = savedCameraPosition else {
+            print("No saved camera position")
+            return
+        }
+        let cameraUpdate = NMFCameraUpdate(scrollTo: position)
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 1.5
+        view.mapView.moveCamera(cameraUpdate)
+        print("Restored Camera Position: \(position)")
+    }
+    
     func moveCameraToRestaurant(_ restaurant: Restaurant) {
         let latLng = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
+        print("latLng: \(latLng)")
+//        guard let position = savedCameraPosition else { return }
         let cameraUpdate = NMFCameraUpdate(scrollTo: latLng, zoomTo: 15)
+//        let cameraUpdate = NMFCameraUpdate(scrollTo: position, zoomTo: 15)
+        
+        
         cameraUpdate.animation = .easeIn
         cameraUpdate.animationDuration = 1.5
         view.mapView.moveCamera(cameraUpdate)
@@ -159,6 +184,10 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     }
     
     func fetchUserLocation() {
+        if hasMovedToUserLocation {
+            return
+        }
+        
         if let locationManager = locationManager {
             guard let lat = locationManager.location?.coordinate.latitude,
                   let lng = locationManager.location?.coordinate.longitude else {

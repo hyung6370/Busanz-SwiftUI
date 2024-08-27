@@ -13,6 +13,7 @@ class MapViewModel: ObservableObject {
     @Published var filteredRestaurants: [Restaurant] = []
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
+    @Published var showToast: Bool = false
     
     private let restaurantManager = BusanRestaurantKorManager()
     private var cancellables = Set<AnyCancellable>()
@@ -36,7 +37,7 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
-                print(restaurants)
+//                print(restaurants)
                 self?.applyFilters()
             }
             .store(in: &cancellables)
@@ -76,6 +77,10 @@ class MapViewModel: ObservableObject {
         }
         
         filteredRestaurants = filtered
+        
+        if filtered.isEmpty {
+            showToast = true
+        }
         
         if isInitialLoad {
             Coordinator.shared.fetchUserLocation()

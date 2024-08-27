@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var selectedGugun: String? = nil
     @State private var searchText: String = ""
     @State private var isDetailViewActive: Bool = false
+    @State private var hasRestoredCameraPosition = false
         
     var body: some View {
         NavigationStack {
@@ -29,14 +30,25 @@ struct ContentView: View {
                     }
                 }
                 .onAppear {
-                    Coordinator.shared.checkIfLocationServiceIsEnabled()
-                    viewModel.fetchRestaurants()
+                    if hasRestoredCameraPosition {
+                        Coordinator.shared.restoreCameraPosition()
+                    }
+                    else {
+                        Coordinator.shared.checkIfLocationServiceIsEnabled()
+                        viewModel.fetchRestaurants()
+                        hasRestoredCameraPosition = true
+                    }
                 }
                 
                 if !viewModel.isLoading {
                     VStack {
                         SearchBarView(text: $searchText) {
-                            viewModel.filterRestaurants(bySearchText: searchText)
+                            if searchText.isEmpty {
+                                // 아무것도 입력 안됐을 때
+                            }
+                            else {
+                                viewModel.filterRestaurants(bySearchText: searchText)
+                            }
                         }
                         .padding(.trailing, 16)
                         .padding(.bottom, 20)
@@ -62,10 +74,12 @@ struct ContentView: View {
                     )
                     .onAppear {
                         isDetailViewActive = true // 뷰가 나타날 때 활성화
+                        Coordinator.shared.saveCurrentCameraPosition()
                     }
                     .onDisappear {
                         isDetailViewActive = false
                         coordinator.selectedRestaurant = nil
+                        Coordinator.shared.restoreCameraPosition()
                     }
                 }
             }
@@ -74,8 +88,21 @@ struct ContentView: View {
                     DetailResInfoView(restaurant: selectedRestaurant)
                 }
             }
+            .overlay(
+                Group {
+                    if viewModel.showToast {
+                        ToastView(message: "검색된 맛집이 없습니다.")
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                                    withAnimation {
+                                        viewModel.showToast = false
+                                    }
+                                }
+                            }
+                    }
+                }
+            )
         }
-        
     }
 }
 
