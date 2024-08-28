@@ -54,7 +54,6 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
 //        let cameraUpdate = NMFCameraUpdate(scrollTo: busanCenter, zoomTo: 10)
 //        view.mapView.moveCamera(cameraUpdate)
 //    }
-    
     func saveCurrentCameraPosition() {
         savedCameraPosition = view.mapView.cameraPosition.target
         print("Saved Camera Position: \(String(describing: savedCameraPosition))")

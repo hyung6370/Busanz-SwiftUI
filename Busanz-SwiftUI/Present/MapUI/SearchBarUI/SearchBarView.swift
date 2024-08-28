@@ -14,9 +14,7 @@ struct SearchBarView: View {
     var body: some View {
         HStack {
             TextField("맛집을 입력해주세요.", text: $text, onCommit: {
-                if !text.isEmpty {
-                    onSearch()
-                }
+                onSearch()
             })
                 .padding(7)
                 .padding(.horizontal, 25)
@@ -31,7 +29,7 @@ struct SearchBarView: View {
                         
                         if !text.isEmpty {
                             Button(action: {
-                                self.text = ""
+                                text = ""
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(.gray)
@@ -43,9 +41,7 @@ struct SearchBarView: View {
                 .padding(.horizontal, 10)
             
             Button(action: {
-                if !text.isEmpty {
-                    onSearch()
-                }
+                onSearch()
             }) {
                 Text("검색")
                     .font(.notosansMedium16)

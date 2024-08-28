@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var searchText: String = ""
     @State private var isDetailViewActive: Bool = false
     @State private var hasRestoredCameraPosition = false
+    @State private var emptyTFShowToast: Bool = false
         
     var body: some View {
         NavigationStack {
@@ -44,7 +45,10 @@ struct ContentView: View {
                     VStack {
                         SearchBarView(text: $searchText) {
                             if searchText.isEmpty {
-                                // 아무것도 입력 안됐을 때
+                                emptyTFShowToast = true
+                                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                                    emptyTFShowToast = false
+                                }
                             }
                             else {
                                 viewModel.filterRestaurants(bySearchText: searchText)
@@ -82,26 +86,30 @@ struct ContentView: View {
                         Coordinator.shared.restoreCameraPosition()
                     }
                 }
+                
+                ZStack {
+                    if emptyTFShowToast {
+                        ToastView(message: "맛집을 입력해주세요.")
+                    }
+                    
+                    if viewModel.noneShowToast {
+                        ToastView(message: "검색된 맛집이 없습니다.")
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                                    viewModel.noneShowToast = false
+                                }
+                            }
+                            .opacity(viewModel.noneShowToast ? 1 : 0)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.top, 10)
             }
             .navigationDestination(isPresented: $isDetailViewActive) {
                 if let selectedRestaurant = coordinator.selectedRestaurant {
                     DetailResInfoView(restaurant: selectedRestaurant)
                 }
             }
-            .overlay(
-                Group {
-                    if viewModel.showToast {
-                        ToastView(message: "검색된 맛집이 없습니다.")
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-                                    withAnimation {
-                                        viewModel.showToast = false
-                                    }
-                                }
-                            }
-                    }
-                }
-            )
         }
     }
 }
