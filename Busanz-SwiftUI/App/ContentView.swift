@@ -21,25 +21,17 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topLeading) {
-                VStack {
-                    if viewModel.isLoading {
-                        ProgressView("Loading...")
+                NaverMap(restaurants: $viewModel.filteredRestaurants)
+                    .ignoresSafeArea(.all)
+                    .onAppear {
+                        if hasRestoredCameraPosition {
+                            Coordinator.shared.restoreCameraPosition()
+                        } else {
+                            Coordinator.shared.checkIfLocationServiceIsEnabled()
+                            viewModel.fetchRestaurants()
+                            hasRestoredCameraPosition = true
+                        }
                     }
-                    else {
-                        NaverMap(restaurants: $viewModel.filteredRestaurants)
-                            .ignoresSafeArea(.all)
-                    }
-                }
-                .onAppear {
-                    if hasRestoredCameraPosition {
-                        Coordinator.shared.restoreCameraPosition()
-                    }
-                    else {
-                        Coordinator.shared.checkIfLocationServiceIsEnabled()
-                        viewModel.fetchRestaurants()
-                        hasRestoredCameraPosition = true
-                    }
-                }
                 
                 if !viewModel.isLoading {
                     VStack {
@@ -104,6 +96,12 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top, 10)
+                
+                if viewModel.isLoading {
+                    IndicatorView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .zIndex(1)
+                }
             }
             .navigationDestination(isPresented: $isDetailViewActive) {
                 if let selectedRestaurant = coordinator.selectedRestaurant {
