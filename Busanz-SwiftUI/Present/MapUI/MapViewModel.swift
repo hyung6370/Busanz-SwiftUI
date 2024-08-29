@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import NMapsMap
 
 class MapViewModel: ObservableObject {
     @Published var restaurants: [Restaurant] = []
@@ -23,6 +24,12 @@ class MapViewModel: ObservableObject {
     private var searchText: String = ""
     
     var isInitialLoad: Bool = true
+    
+    private let busanCenter = NMGLatLng(lat: 35.1796, lng: 129.0756) // 부산 중심 좌표
+    private let busanBounds = NMGLatLngBounds(
+        southWest: NMGLatLng(lat: 34.9170, lng: 128.8226), // 남서쪽 좌표
+        northEast: NMGLatLng(lat: 35.4062, lng: 129.2904)  // 북동쪽 좌표
+    )
     
     func fetchRestaurants() {
         isLoading = true
@@ -42,6 +49,16 @@ class MapViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    func showAllRestaurants() {
+        selectedGugun = nil
+        selectedCount = Int.max
+        searchText = ""
+        filteredRestaurants = restaurants
+        
+        Coordinator.shared.addMarkers(for: restaurants)
+    }
+    
     func filterRestaurants(by gugun: String?) {
         selectedGugun = gugun
         applyFilters()
@@ -60,38 +77,43 @@ class MapViewModel: ObservableObject {
     private func applyFilters() {
         var filtered = restaurants
         
-        // 구군별 필터링 적용
-        if let gugun = selectedGugun {
+        // 구군별 필터링
+        if let gugun = selectedGugun, !gugun.isEmpty {
             filtered = filtered.filter { $0.gugunNm == gugun }
         }
         
-        // 검색어 필터링 적용
+        // 검색어 필터링
         if !searchText.isEmpty {
             filtered = filtered.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
         }
         
-        // 개수별 필터링 적용
+        // 개수별 필터링
         if selectedCount != Int.max {
             filtered = Array(filtered.prefix(selectedCount))
         }
-        
+
         filteredRestaurants = filtered
-        
+
         if filtered.isEmpty {
             noneShowToast = true
+        } else {
+            noneShowToast = false
+            moveCameraToBusanBounds()
         }
         
-        if isInitialLoad {
-            Coordinator.shared.fetchUserLocation()
-            isInitialLoad = false
-        }
-        else if let firstRestaurant = filtered.first {
-            Coordinator.shared.moveCameraToRestaurant(firstRestaurant)
-        }
+        // 필터된 맛집에 대한 마커 업데이트
+        Coordinator.shared.addMarkers(for: filteredRestaurants)
     }
     
     func getGugunList() -> [String] {
         let gugunSet = Set(restaurants.map { $0.gugunNm })
         return Array(gugunSet).sorted()
+    }
+    
+    private func moveCameraToBusanBounds() {
+        let cameraUpdate = NMFCameraUpdate(fit: busanBounds)
+        cameraUpdate.animation = .easeIn
+        cameraUpdate.animationDuration = 1.5
+        Coordinator.shared.view.mapView.moveCamera(cameraUpdate)
     }
 }

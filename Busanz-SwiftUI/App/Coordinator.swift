@@ -15,7 +15,6 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @Published var selectedRestaurant: Restaurant? = nil
     
-    var savedCameraPosition: NMGLatLng?
     var hasMovedToUserLocation = false
     
     var locationManager: CLLocationManager?
@@ -26,10 +25,6 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     
     override init() {
         super.init()
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.setInitialCameraPosition()
-//        }
         
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
@@ -43,57 +38,16 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
         view.mapView.touchDelegate = self
     }
     
-//    private func setInitialCameraPosition() {
-//        let busanCenter = NMGLatLng(lat: 35.1796, lng: 129.0756)
-//        let southWest = NMGLatLng(lat: 34.9170, lng: 128.8226)
-//        let northEast = NMGLatLng(lat: 35.4062, lng: 129.2904)
-//        
-//        let busanBounds = NMGLatLngBounds(southWest: southWest, northEast: northEast)
-//        view.mapView.extent = busanBounds
-//        
-//        let cameraUpdate = NMFCameraUpdate(scrollTo: busanCenter, zoomTo: 10)
-//        view.mapView.moveCamera(cameraUpdate)
-//    }
-    
-    func saveCurrentCameraPosition() {
-        savedCameraPosition = view.mapView.cameraPosition.target
-        print("Saved Camera Position: \(String(describing: savedCameraPosition))")
-    }
-    
-    func restoreCameraPosition() {
-        guard let position = savedCameraPosition else {
-            print("No saved camera position")
-            return
-        }
-        let cameraUpdate = NMFCameraUpdate(scrollTo: position)
-        cameraUpdate.animation = .easeIn
-        cameraUpdate.animationDuration = 1.5
-        view.mapView.moveCamera(cameraUpdate)
-        print("Restored Camera Position: \(position)")
-    }
-    
-    func moveCameraToRestaurant(_ restaurant: Restaurant) {
-        let latLng = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
-        print("latLng: \(latLng)")
-//        guard let position = savedCameraPosition else { return }
-        let cameraUpdate = NMFCameraUpdate(scrollTo: latLng, zoomTo: 15)
-//        let cameraUpdate = NMFCameraUpdate(scrollTo: position, zoomTo: 15)
-        
-        
-        cameraUpdate.animation = .easeIn
-        cameraUpdate.animationDuration = 1.5
-        view.mapView.moveCamera(cameraUpdate)
-    }
-    
     func addMarkers(for restaurants: [Restaurant]) {
-        markers.forEach { $0.mapView = nil } // 기존 마커 제거
+        // 기존 마커 제거
+        markers.forEach { $0.mapView = nil }
         markers.removeAll() // 마커 배열 초기화
         
         for restaurant in restaurants {
             let marker = NMFMarker()
             marker.position = NMGLatLng(lat: restaurant.lat, lng: restaurant.lng)
             
-            // 마커의 아이콘 설정 (선택 사항)
+            // 마커의 아이콘 설정
             if let image = UIImage(named: "ResMarker") {
                 let resizedImage = image.resized(to: CGSize(width: 30, height: 30))
                 marker.iconImage = NMFOverlayImage(image: resizedImage!)
@@ -101,7 +55,7 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
             
             marker.mapView = view.mapView // 마커를 맵에 추가
             
-            // 마커 클릭 이벤트 처리 (선택 사항)
+            // 마커 클릭 이벤트 처리
             marker.touchHandler = { [weak self] (overlay) -> Bool in
                 guard let self = self else { return true }
                 
@@ -130,24 +84,6 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
             markers.append(marker) // 마커 배열에 추가
         }
     }
-    
-    func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {
-        
-    }
-    
-    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
-        
-    }
-    
-    /*
-     ContentView 에서 .onAppear 에서 위치 정보 제공을 동의 했는지 확인하는 함수를 호출한다.
-     
-     위치 정보 제공 동의 순서
-     1. MapView에서 .onAppear에서 checkIfLocationServiceIsEnabled() 호출
-     2. checkIfLocationServiceIsEnabled() 함수 안에서 locationServicesEnabled() 값이 true 인지 체크
-     3. true일 경우(동의한 경우), checkLocationAuthorization() 호출
-     4. case .authorizedAlways(항상 허용), .authorizedWhenInUse(앱 사용중에만 허용)일 경우에만 fetchUserLocation() 호출
-     */
     
     func checkIfLocationServiceIsEnabled() {
         if CLLocationManager.locationServicesEnabled() {

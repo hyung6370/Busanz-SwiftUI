@@ -30,6 +30,7 @@ struct SearchBarView: View {
                         if !text.isEmpty {
                             Button(action: {
                                 text = ""
+                                onSearch()
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(.gray)

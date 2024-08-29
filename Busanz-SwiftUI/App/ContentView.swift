@@ -24,13 +24,7 @@ struct ContentView: View {
                 NaverMap(restaurants: $viewModel.filteredRestaurants)
                     .ignoresSafeArea(.all)
                     .onAppear {
-                        if hasRestoredCameraPosition {
-                            Coordinator.shared.restoreCameraPosition()
-                        } else {
-                            Coordinator.shared.checkIfLocationServiceIsEnabled()
-                            viewModel.fetchRestaurants()
-                            hasRestoredCameraPosition = true
-                        }
+                        viewModel.fetchRestaurants()
                     }
                 
                 if !viewModel.isLoading {
@@ -50,15 +44,24 @@ struct ContentView: View {
                         .padding(.bottom, 20)
                         
                         Spacer()
-                    
-                        FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
-                            viewModel.filterRestaurants(by: gugun)
-                        } onCountSelected: { count in
-                            viewModel.filterRestaurants(byCount: count)
+                        
+                        VStack(spacing: 1) {
+                            HStack {
+                                Spacer()
+                                AllSelectedBtnView() {
+                                    viewModel.showAllRestaurants()
+                                }
+                            }
+                            .padding(.trailing, 17)
+                            FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
+                                viewModel.filterRestaurants(by: gugun)
+                            } onCountSelected: { count in
+                                viewModel.filterRestaurants(byCount: count)
+                            }
+                            .padding(.bottom, 35)
+                            .padding(.leading, 150)
+                            .transition(.opacity)
                         }
-                        .padding(.bottom, 35)
-                        .padding(.leading, 150)
-                        .transition(.opacity)
                     }
                 }
                 
@@ -70,12 +73,10 @@ struct ContentView: View {
                     )
                     .onAppear {
                         isDetailViewActive = true // 뷰가 나타날 때 활성화
-                        Coordinator.shared.saveCurrentCameraPosition()
                     }
                     .onDisappear {
                         isDetailViewActive = false
                         coordinator.selectedRestaurant = nil
-                        Coordinator.shared.restoreCameraPosition()
                     }
                 }
                 

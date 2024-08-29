@@ -15,4 +15,5 @@ pod 'SDWebImage', '~> 5.0'
 pod 'NMapsMap'
 pod 'RxSwift', '6.5.0'
 pod 'RxCocoa', '6.5.0'
+pod 'RiveRuntime'
 end
