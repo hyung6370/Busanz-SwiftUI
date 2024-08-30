@@ -9,8 +9,8 @@ import SwiftUI
 import RiveRuntime
 
 struct TabBar: View {
-    @AppStorage("selectedTab") var selectedTab: Tab = .search
-    let icon = RiveViewModel(fileName: "icons", stateMachineName: "SEARCH_Interactivity", artboardName: "SEARCH")
+    @AppStorage("selectedTab") var selectedTab: Tab = .timer
+    let icon = RiveViewModel(fileName: "icons", stateMachineName: "TIMER_Interactivity", artboardName: "TIMER")
     
     var body: some View {
         VStack {
@@ -71,13 +71,13 @@ struct TabItem: Identifiable {
 }
 
 var tabItems = [
-    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "SEARCH_Interactivity", artboardName: "SEARCH"), tab: .search),
     TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "TIMER_Interactivity", artboardName: "TIMER"), tab: .timer),
+    TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "SEARCH_Interactivity", artboardName: "SEARCH"), tab: .search),
     TabItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "USER_Interactivity", artboardName: "USER"), tab: .user)
 ]
 
 enum Tab: String {
-    case search
     case timer
+    case search
     case user
 }

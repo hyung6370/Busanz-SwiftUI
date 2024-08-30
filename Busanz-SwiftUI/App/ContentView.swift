@@ -52,14 +52,14 @@ struct ContentView: View {
                                     viewModel.showAllRestaurants()
                                 }
                             }
-                            .padding(.trailing, 17)
+                            .padding(.trailing, 27)
                             FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
                                 viewModel.filterRestaurants(by: gugun)
                             } onCountSelected: { count in
                                 viewModel.filterRestaurants(byCount: count)
                             }
-                            .padding(.bottom, 35)
-                            .padding(.leading, 150)
+                            .padding(.bottom, 60)
+                            .padding(.leading, 130)
                             .transition(.opacity)
                         }
                     }
@@ -103,12 +103,14 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .zIndex(1)
                 }
+                TabBar()
             }
             .navigationDestination(isPresented: $isDetailViewActive) {
                 if let selectedRestaurant = coordinator.selectedRestaurant {
                     DetailResInfoView(restaurant: selectedRestaurant)
                 }
             }
+            
         }
     }
 }

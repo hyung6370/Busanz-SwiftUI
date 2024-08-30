@@ -23,19 +23,45 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     private var markers: [NMFMarker] = []
     private var currentInfoWindow: NMFInfoWindow?
     
+    let compassView = NMFCompassView()
+    let locationButton = NMFLocationButton()
+    
     override init() {
         super.init()
         
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
         
-        view.showLocationButton = true // 현위치 버튼
+        view.showLocationButton = false // 현위치 버튼
         view.showZoomControls = true   // 줌 버튼
-        view.showCompass = true        // 나침반
-        view.showScaleBar = true       // 스케일 바
+        view.showCompass = false        // 나침반
         
+        view.mapView.logoAlign = .leftBottom
+        view.mapView.logoMargin = UIEdgeInsets(top: 0, left: 25, bottom: 75, right: 0)
+        
+        addCustomControls()
+
         view.mapView.addCameraDelegate(delegate: self)
         view.mapView.touchDelegate = self
+    }
+    
+    private func addCustomControls() {
+        compassView.mapView = view.mapView
+        view.addSubview(compassView)
+        compassView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            compassView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            compassView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15)
+        ])
+        
+        // 커스텀 위치 버튼 추가
+        locationButton.mapView = view.mapView
+        view.addSubview(locationButton)
+        locationButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            locationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
+            locationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140)
+        ])
     }
     
     func addMarkers(for restaurants: [Restaurant]) {
