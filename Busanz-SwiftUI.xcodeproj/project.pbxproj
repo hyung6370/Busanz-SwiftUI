@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D9A93FFCEF6F2D8CBBF53173 /* Pods_Busanz_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */; };
+		F62133C82C85799500E3E87F /* VCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62133C72C85799500E3E87F /* VCard.swift */; };
 		F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */; };
 		F6344B1E2C60B268002857CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1D2C60B268002857CC /* ContentView.swift */; };
 		F6344B202C60B268002857CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B1F2C60B268002857CC /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		9012A53B5D580BFCE29CB39B /* Pods-Busanz-SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Busanz_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		F62133C72C85799500E3E87F /* VCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCard.swift; sourceTree = "<group>"; };
 		F6344B182C60B268002857CC /* Busanz-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Busanz-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIApp.swift; sourceTree = "<group>"; };
 		F6344B1D2C60B268002857CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 				A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F62133C62C85798300E3E87F /* CardUI */ = {
+			isa = PBXGroup;
+			children = (
+				F62133C72C85799500E3E87F /* VCard.swift */,
+			);
+			path = CardUI;
 			sourceTree = "<group>";
 		};
 		F6344B0F2C60B268002857CC = {
@@ -261,6 +271,7 @@
 		F65392F32C7EB916008C1CE7 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				F62133C62C85798300E3E87F /* CardUI */,
 				F65392FE2C8143C2008C1CE7 /* TabBarUI */,
 				F65392F42C7EB91E008C1CE7 /* IndicatorUI */,
 				F653929E2C7D6B23008C1CE7 /* AlertUI */,
@@ -518,6 +529,7 @@
 				F6EE3F692C65950B0035B066 /* MapViewModel.swift in Sources */,
 				F65CF0052C64997200EEC18B /* AppDelegate.swift in Sources */,
 				F69931E52C69C245003141A8 /* UIImage++Ex.swift in Sources */,
+				F62133C82C85799500E3E87F /* VCard.swift in Sources */,
 				F65393142C81BCBA008C1CE7 /* HomeViewModel.swift in Sources */,
 				F65393002C8143DB008C1CE7 /* TabBar.swift in Sources */,
 				F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */,

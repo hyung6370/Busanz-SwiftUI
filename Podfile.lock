@@ -15,6 +15,8 @@ PODS:
   - SDWebImage (5.19.4):
     - SDWebImage/Core (= 5.19.4)
   - SDWebImage/Core (5.19.4)
+  - SDWebImageSwiftUI (3.1.1):
+    - SDWebImage (~> 5.10)
   - SnapKit (5.7.1)
   - Then (3.0.0)
 
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
   - SDWebImage (~> 5.0)
+  - SDWebImageSwiftUI
   - SnapKit
   - Then
 
@@ -42,6 +45,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SDWebImage
+    - SDWebImageSwiftUI
     - SnapKit
     - Then
 
@@ -56,9 +60,10 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: 066c47b573f408f18caa467d71deace7c0f8280d
+  SDWebImageSwiftUI: dcff3d05fd0579ff280221ae8856c34ac3b67f25
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: aad26030c8054af23e08184de79948e4bdc53a46
+PODFILE CHECKSUM: 94af17290b75c5ee269bcc7a1a1642656c607cc8
 
 COCOAPODS: 1.15.2

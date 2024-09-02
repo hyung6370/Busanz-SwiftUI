@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Color {
     static let customOrange = Color(hex: "d24134")
+    static let vCardColor = Color(hex: "7850F0")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)

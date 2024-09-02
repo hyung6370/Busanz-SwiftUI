@@ -44,7 +44,7 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
-//                print(restaurants)
+                print(restaurants)
                 self?.applyFilters()
             }
             .store(in: &cancellables)
