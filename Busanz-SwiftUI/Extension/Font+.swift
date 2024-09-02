@@ -11,6 +11,9 @@ import SwiftUI
 extension Font {
     // NotoSansKR
     // Bold
+    static let notosansBold34: Font = .custom("NotoSansKR-Bold", size: 34)
+    static let notosansBold32: Font = .custom("NotoSansKR-Bold", size: 32)
+    static let notosansBold30: Font = .custom("NotoSansKR-Bold", size: 30)
     static let notosansBold28: Font = .custom("NotoSansKR-Bold", size: 28)
     static let notosansBold24: Font = .custom("NotoSansKR-Bold", size: 24)
     static let notosansBold20: Font = .custom("NotoSansKR-Bold", size: 20)
