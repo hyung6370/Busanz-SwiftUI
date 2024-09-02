@@ -48,4 +48,20 @@ extension Font {
     static let notosansRegular16: Font = .custom("NotoSansKR-Regular", size: 16)
     static let notosansRegular14: Font = .custom("NotoSansKR-Regular", size: 14)
     static let notosansRegular12: Font = .custom("NotoSansKR-Regular", size: 12)
+    
+    
+    // Jua
+    // Regular
+    static let juaRegualr12: Font = .custom("Jua-Regular", size: 12)
+    static let juaRegualr14: Font = .custom("Jua-Regular", size: 14)
+    static let juaRegualr16: Font = .custom("Jua-Regular", size: 16)
+    static let juaRegualr18: Font = .custom("Jua-Regular", size: 18)
+    static let juaRegualr20: Font = .custom("Jua-Regular", size: 20)
+    static let juaRegualr22: Font = .custom("Jua-Regular", size: 22)
+    static let juaRegualr24: Font = .custom("Jua-Regular", size: 24)
+    static let juaRegualr26: Font = .custom("Jua-Regular", size: 26)
+    static let juaRegualr28: Font = .custom("Jua-Regular", size: 28)
+    static let juaRegualr30: Font = .custom("Jua-Regular", size: 30)
+    static let juaRegualr32: Font = .custom("Jua-Regular", size: 32)
+    static let juaRegualr34: Font = .custom("Jua-Regular", size: 34)
 }

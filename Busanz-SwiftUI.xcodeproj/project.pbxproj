@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D9A93FFCEF6F2D8CBBF53173 /* Pods_Busanz_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */; };
 		F62133C82C85799500E3E87F /* VCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62133C72C85799500E3E87F /* VCard.swift */; };
+		F62133CB2C86864100E3E87F /* Jua-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F62133C92C86864000E3E87F /* Jua-Regular.ttf */; };
 		F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */; };
 		F6344B1E2C60B268002857CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1D2C60B268002857CC /* ContentView.swift */; };
 		F6344B202C60B268002857CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B1F2C60B268002857CC /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Busanz_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F62133C72C85799500E3E87F /* VCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCard.swift; sourceTree = "<group>"; };
+		F62133C92C86864000E3E87F /* Jua-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jua-Regular.ttf"; sourceTree = "<group>"; };
 		F6344B182C60B268002857CC /* Busanz-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Busanz-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIApp.swift; sourceTree = "<group>"; };
 		F6344B1D2C60B268002857CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			path = CardUI;
 			sourceTree = "<group>";
 		};
+		F62133CA2C86864000E3E87F /* Jua */ = {
+			isa = PBXGroup;
+			children = (
+				F62133C92C86864000E3E87F /* Jua-Regular.ttf */,
+			);
+			path = Jua;
+			sourceTree = "<group>";
+		};
 		F6344B0F2C60B268002857CC = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 		F6344B2C2C60B2C3002857CC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F62133CA2C86864000E3E87F /* Jua */,
 				F64E83F92C6B535100865A5D /* NotoSansKR */,
 				F6344B1F2C60B268002857CC /* Assets.xcassets */,
 				F65393082C814597008C1CE7 /* RiveAssets */,
@@ -426,6 +437,7 @@
 				F64E83FF2C6B535100865A5D /* NotoSansKR-SemiBold.ttf in Resources */,
 				F653930C2C814597008C1CE7 /* house.riv in Resources */,
 				F6344B352C60B747002857CC /* .gitignore in Resources */,
+				F62133CB2C86864100E3E87F /* Jua-Regular.ttf in Resources */,
 				F64E83FA2C6B535100865A5D /* NotoSansKR-Bold.ttf in Resources */,
 				F653930D2C814597008C1CE7 /* icons.riv in Resources */,
 				F653930A2C814597008C1CE7 /* check.riv in Resources */,
