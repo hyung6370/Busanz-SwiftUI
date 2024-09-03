@@ -28,6 +28,7 @@ struct HomeView: View {
             stopAutoScroll()
         }
     }
+
     var content: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Busan's Collections")
@@ -35,14 +36,27 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(viewModel.restaurants, id: \.mainTitle) { restaurant in
-                        VCard(restaurant: restaurant)
+            ScrollViewReader { scrollViewProxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.restaurants.indices, id: \.self) { index in
+                            VCard(restaurant: viewModel.restaurants[index])
+                                .id(index)
+                                .onAppear {
+                                    if index == currentIndex {
+                                        scrollViewProxy.scrollTo(currentIndex, anchor: .center)
+                                    }
+                                }
+                        }
+                    }
+                    .padding(20)
+                    .padding(.bottom, 10)
+                }
+                .onChange(of: currentIndex) { newIndex in
+                    withAnimation {
+                        scrollViewProxy.scrollTo(newIndex, anchor: .center)
                     }
                 }
-                .padding(20)
-                .padding(.bottom, 10)
             }
         }
     }
@@ -51,7 +65,7 @@ struct HomeView: View {
         timer = Timer.publish(every: 3, on: .main, in: .common)
             .autoconnect()
             .sink { _ in
-                if viewModel.restaurants.isEmpty { return }
+                guard !viewModel.restaurants.isEmpty else { return }
                 
                 withAnimation {
                     currentIndex = (currentIndex + 1) % viewModel.restaurants.count

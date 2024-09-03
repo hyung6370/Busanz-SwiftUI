@@ -29,7 +29,7 @@ class HomeViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] restaurants in
-                self?.restaurants = restaurants
+                self?.restaurants = restaurants.shuffled()
             })
             .store(in: &cancellables)
     }
