@@ -9,112 +9,45 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @StateObject var coordinator: Coordinator = Coordinator.shared
-    @StateObject private var viewModel = MapViewModel()
-    
-    @State private var selectedGugun: String? = nil
-    @State private var searchText: String = ""
-    @State private var isDetailViewActive: Bool = false
-    @State private var hasRestoredCameraPosition = false
-    @State private var emptyTFShowToast: Bool = false
+//    @State private var selectedTab: Tab = .timer
+    @AppStorage("selectedTab") var selectedTab: Tab = .timer
         
     var body: some View {
-        NavigationStack {
-            ZStack(alignment: .topLeading) {
-                NaverMap(restaurants: $viewModel.filteredRestaurants)
-                    .ignoresSafeArea(.all)
-                    .onAppear {
-                        viewModel.fetchRestaurants()
-                    }
-                
-                if !viewModel.isLoading {
-                    VStack {
-                        SearchBarView(text: $searchText) {
-                            if searchText.isEmpty {
-                                emptyTFShowToast = true
-                                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                                    emptyTFShowToast = false
-                                }
-                            }
-                            else {
-                                viewModel.filterRestaurants(bySearchText: searchText)
-                            }
-                        }
-                        .padding(.trailing, 16)
-                        .padding(.bottom, 20)
-                        
-                        Spacer()
-                        
-                        VStack(spacing: 1) {
-                            HStack {
-                                Spacer()
-                                AllSelectedBtnView() {
-                                    viewModel.showAllRestaurants()
-                                }
-                            }
-                            .padding(.trailing, 27)
-                            FloatingFilterView(selectedGugun: $selectedGugun, gugunList: viewModel.getGugunList()) { gugun in
-                                viewModel.filterRestaurants(by: gugun)
-                            } onCountSelected: { count in
-                                viewModel.filterRestaurants(byCount: count)
-                            }
-                            .padding(.bottom, 60)
-                            .padding(.leading, 130)
-                            .transition(.opacity)
-                        }
-                    }
-                }
-                
-                if let selectedRestaurant = coordinator.selectedRestaurant {
-                    NavigationLink(
-                        destination: DetailResInfoView(restaurant: selectedRestaurant),
-                        isActive: $isDetailViewActive, // 활성화 상태 바인딩
-                        label: { EmptyView() }
-                    )
-                    .onAppear {
-                        isDetailViewActive = true // 뷰가 나타날 때 활성화
-                    }
-                    .onDisappear {
-                        isDetailViewActive = false
-                        coordinator.selectedRestaurant = nil
-                    }
-                }
-                
-                ZStack {
-                    if emptyTFShowToast {
-                        ToastView(message: "맛집을 입력해주세요.")
-                    }
-                    
-                    if viewModel.noneShowToast {
-                        ToastView(message: "검색된 맛집이 없습니다.")
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-                                    viewModel.noneShowToast = false
-                                }
-                            }
-                            .opacity(viewModel.noneShowToast ? 1 : 0)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 10)
-                
-                if viewModel.isLoading {
-                    IndicatorView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .zIndex(1)
-                }
-                TabBar()
-            }
-            .navigationDestination(isPresented: $isDetailViewActive) {
-                if let selectedRestaurant = coordinator.selectedRestaurant {
-                    DetailResInfoView(restaurant: selectedRestaurant)
+        ZStack {
+            Group {
+                switch selectedTab {
+                case .timer:
+                    HomeView()
+                case .search:
+                    SearchView()
+                case .user:
+                    Text("User")
                 }
             }
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 80)
+            }
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 104)
+            }
+            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+            .ignoresSafeArea()
             
+            TabBar()
+                .offset(y: -24)
+                .background(
+                    LinearGradient(colors:[Color("Background").opacity(0), Color("Background")], startPoint: .top, endPoint: .bottom)
+                        .frame(height: 150)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .allowsHitTesting(false)
+                )
+                .ignoresSafeArea()
         }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

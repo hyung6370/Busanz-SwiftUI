@@ -14,9 +14,10 @@ struct VCard: View {
         if let restaurant = restaurant {
             VStack(alignment: .leading, spacing: 8) {
                 Text(restaurant.mainTitle)
-                    .font(.notosansBold24)
+                    .font(.juaRegualr28)
                     .frame(maxWidth: 170, alignment: .leading)
                     .layoutPriority(1)
+                    .padding(.leading, 3)
                 Text(restaurant.addr1)
                     .font(.notosansRegular14)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -27,6 +28,8 @@ struct VCard: View {
                         switch phase {
                         case .empty:
                             IndicatorView()
+                                .padding(.leading, 75)
+                                .padding(.top, 50)
                         case .success(let image):
                             image
                                 .resizable()
@@ -45,7 +48,7 @@ struct VCard: View {
                             EmptyView()
                         }
                     }
-                } 
+                }
                 else {
                     Image(systemName: "photo")
                         .resizable()

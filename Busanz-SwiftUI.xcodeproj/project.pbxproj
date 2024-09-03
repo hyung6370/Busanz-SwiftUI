@@ -10,6 +10,7 @@
 		D9A93FFCEF6F2D8CBBF53173 /* Pods_Busanz_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B1D6EB2FFC21889A0D9185 /* Pods_Busanz_SwiftUI.framework */; };
 		F62133C82C85799500E3E87F /* VCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62133C72C85799500E3E87F /* VCard.swift */; };
 		F62133CB2C86864100E3E87F /* Jua-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F62133C92C86864000E3E87F /* Jua-Regular.ttf */; };
+		F62133CD2C869C6200E3E87F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62133CC2C869C6200E3E87F /* SearchView.swift */; };
 		F6344B1C2C60B268002857CC /* Busanz_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */; };
 		F6344B1E2C60B268002857CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6344B1D2C60B268002857CC /* ContentView.swift */; };
 		F6344B202C60B268002857CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6344B1F2C60B268002857CC /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		B6A4FC4397E80A08810DD67F /* Pods-Busanz-SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Busanz-SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Busanz-SwiftUI/Pods-Busanz-SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		F62133C72C85799500E3E87F /* VCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCard.swift; sourceTree = "<group>"; };
 		F62133C92C86864000E3E87F /* Jua-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jua-Regular.ttf"; sourceTree = "<group>"; };
+		F62133CC2C869C6200E3E87F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F6344B182C60B268002857CC /* Busanz-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Busanz-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6344B1B2C60B268002857CC /* Busanz_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIApp.swift; sourceTree = "<group>"; };
 		F6344B1D2C60B268002857CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		F6344B362C60C4DC002857CC /* MapUI */ = {
 			isa = PBXGroup;
 			children = (
+				F62133CC2C869C6200E3E87F /* SearchView.swift */,
 				F6344B372C60C503002857CC /* MapView.swift */,
 				F6EE3F682C65950B0035B066 /* MapViewModel.swift */,
 				F69931E82C69F329003141A8 /* FloatingFilterUI */,
@@ -530,6 +533,7 @@
 				F6344B1E2C60B268002857CC /* ContentView.swift in Sources */,
 				F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */,
 				F69931EA2C6AF9D9003141A8 /* Font+.swift in Sources */,
+				F62133CD2C869C6200E3E87F /* SearchView.swift in Sources */,
 				F6EE3F6F2C65F9390035B066 /* APIResponse.swift in Sources */,
 				F65392A02C7D6CBC008C1CE7 /* ToastView.swift in Sources */,
 				F6344B382C60C503002857CC /* MapView.swift in Sources */,

@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
+    @State private var currentIndex = 0
+    @State private var timer: AnyCancellable?
     
     var body: some View {
         ZStack {
@@ -17,6 +20,12 @@ struct HomeView: View {
             ScrollView {
                 content
             }
+        }
+        .onAppear {
+            startAutoScroll()
+        }
+        .onDisappear {
+            stopAutoScroll()
         }
     }
     var content: some View {
@@ -36,6 +45,22 @@ struct HomeView: View {
                 .padding(.bottom, 10)
             }
         }
+    }
+    
+    func startAutoScroll() {
+        timer = Timer.publish(every: 3, on: .main, in: .common)
+            .autoconnect()
+            .sink { _ in
+                if viewModel.restaurants.isEmpty { return }
+                
+                withAnimation {
+                    currentIndex = (currentIndex + 1) % viewModel.restaurants.count
+                }
+            }
+    }
+    
+    func stopAutoScroll() {
+        timer?.cancel()
     }
 }
 
