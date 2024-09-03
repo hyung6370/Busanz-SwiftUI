@@ -12,27 +12,36 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var currentIndex = 0
     @State private var timer: AnyCancellable?
+    @State private var isLoading = true
     
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
             
-            ScrollView {
-                content
+            if isLoading {
+                IndicatorView()
+                    .onAppear {
+                        loadData()
+                    }
             }
-        }
-        .onAppear {
-            startAutoScroll()
-        }
-        .onDisappear {
-            stopAutoScroll()
+            else {
+                ScrollView {
+                    content
+                }
+                .onAppear {
+                    startAutoScroll()
+                }
+                .onDisappear {
+                    stopAutoScroll()
+                }
+            }
         }
     }
 
     var content: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Busan's Collections")
-                .font(.notosansBold30)
+                .font(.notosansBold32)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
@@ -68,7 +77,7 @@ struct HomeView: View {
                     HCard(restaurant: viewModel.restaurants[index], index: index)
                 }
             }
-            .padding(.horizontal, 20)
+            .padding(20)
         }
     }
     
@@ -86,6 +95,13 @@ struct HomeView: View {
     
     func stopAutoScroll() {
         timer?.cancel()
+    }
+    
+    func loadData() {
+        viewModel.fetchRestaurants()
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            isLoading = false
+        }
     }
 }
 
