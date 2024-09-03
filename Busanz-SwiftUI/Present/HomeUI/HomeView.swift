@@ -40,7 +40,7 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(viewModel.restaurants.indices, id: \.self) { index in
-                            VCard(restaurant: viewModel.restaurants[index])
+                            VCard(restaurant: viewModel.restaurants[index], index: index)
                                 .id(index)
                                 .onAppear {
                                     if index == currentIndex {
@@ -58,6 +58,17 @@ struct HomeView: View {
                     }
                 }
             }
+            
+            Text("Random Pick!")
+                .font(.notosansBold24)
+                .padding(.horizontal, 20)
+            
+            VStack(spacing: 20) {
+                ForEach(viewModel.restaurants.indices, id: \.self) { index in
+                    HCard(restaurant: viewModel.restaurants[index], index: index)
+                }
+            }
+            .padding(.horizontal, 20)
         }
     }
     

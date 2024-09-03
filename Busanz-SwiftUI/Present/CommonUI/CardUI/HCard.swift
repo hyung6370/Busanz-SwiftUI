@@ -9,16 +9,23 @@ import SwiftUI
 
 struct HCard: View {
     var restaurant: Restaurant?
+    var index: Int
+    
+    let colors: [Color] = [.hCardColor, .hCardColor2, .hCardColor3, .hCardColor4]
     
     var body: some View {
         if let restaurant = restaurant {
             HStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(restaurant.mainTitle)
-                        .font(.juaRegualr28)
+                        .font(.juaRegualr18)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .layoutPriority(1)
                     Text(restaurant.rprsntvMenu)
-                        .font(.notosansMedium18)
+                        .font(.notosansMedium12)
                 }
                 Divider()
                 if let imageURL = URL(string: restaurant.mainImgNormal) {
@@ -55,7 +62,7 @@ struct HCard: View {
             }
             .padding(30)
             .frame(maxWidth: .infinity, maxHeight: 110)
-            .background(Color.hCardColor)
+            .background(colors[index % colors.count])
             .foregroundColor(.white)
             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         }
@@ -80,5 +87,7 @@ struct HCard: View {
         mainImgNormal: "https://www.visitbusan.net/uploadImgs/files/cntnts/20230607132213312_ttiel",
         mainImgThumb: "https://www.visitbusan.net/uploadImgs/files/cntnts/20210913110103549_thumbL",
         itemContent: "Sample item content"
-    ))
+    ),
+          index: 0
+    )
 }

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct VCard: View {
     var restaurant: Restaurant?
+    var index: Int
+    
+    let colors: [Color] = [.vCardColor, .vCardColor2, .vCardColor3]
     
     var body: some View {
         if let restaurant = restaurant {
@@ -18,6 +21,8 @@ struct VCard: View {
                     .frame(maxWidth: 170, alignment: .leading)
                     .layoutPriority(1)
                     .padding(.leading, 3)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
                 Text(restaurant.addr1)
                     .font(.notosansRegular14)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -60,7 +65,7 @@ struct VCard: View {
             .foregroundColor(.white)
             .padding(30)
             .frame(width: 260, height: 310)
-            .background(.linearGradient(colors: [Color.vCardColor, Color.vCardColor.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(.linearGradient(colors: [colors[index % colors.count], colors[index % colors.count].opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
         }
         
@@ -85,5 +90,7 @@ struct VCard: View {
         mainImgNormal: "sample_image",
         mainImgThumb: "https://www.visitbusan.net/uploadImgs/files/cntnts/20210913110103549_thumbL",
         itemContent: "Sample item content"
-    ))
+    ),
+          index: 0
+    )
 }

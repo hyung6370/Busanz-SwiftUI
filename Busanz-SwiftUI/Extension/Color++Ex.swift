@@ -10,7 +10,13 @@ import SwiftUI
 extension Color {
     static let customOrange = Color(hex: "d24134")
     static let vCardColor = Color(hex: "7850F0")
+    static let vCardColor2 = Color(hex: "6792FF")
+    static let vCardColor3 = Color(hex: "005FE7")
+    
     static let hCardColor = Color(hex: "9CC5FF")
+    static let hCardColor2 = Color(hex: "6E6AE8")
+    static let hCardColor3 = Color(hex: "005FE7")
+    static let hCardColor4 = Color(hex: "BBA6FF")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)
