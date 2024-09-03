@@ -15,24 +15,26 @@ struct HomeView: View {
     @State private var isLoading = true
     
     var body: some View {
-        ZStack {
-            Color("Background").ignoresSafeArea()
-            
-            if isLoading {
-                IndicatorView()
-                    .onAppear {
-                        loadData()
+        NavigationStack {
+            ZStack {
+                Color("Background").ignoresSafeArea()
+                
+                if isLoading {
+                    IndicatorView()
+                        .onAppear {
+                            loadData()
+                        }
+                }
+                else {
+                    ScrollView {
+                        content
                     }
-            }
-            else {
-                ScrollView {
-                    content
-                }
-                .onAppear {
-                    startAutoScroll()
-                }
-                .onDisappear {
-                    stopAutoScroll()
+                    .onAppear {
+                        startAutoScroll()
+                    }
+                    .onDisappear {
+                        stopAutoScroll()
+                    }
                 }
             }
         }
@@ -49,13 +51,17 @@ struct HomeView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(viewModel.restaurants.indices, id: \.self) { index in
-                            VCard(restaurant: viewModel.restaurants[index], index: index)
-                                .id(index)
-                                .onAppear {
-                                    if index == currentIndex {
-                                        scrollViewProxy.scrollTo(currentIndex, anchor: .center)
-                                    }
+                            NavigationLink(
+                                destination: DetailResInfoView(restaurant: viewModel.restaurants[index])
+                            ) {
+                                VCard(restaurant: viewModel.restaurants[index], index: index)
+                            }
+                            .id(index)
+                            .onAppear {
+                                if index == currentIndex {
+                                    scrollViewProxy.scrollTo(currentIndex, anchor: .center)
                                 }
+                            }
                         }
                     }
                     .padding(20)
@@ -73,8 +79,13 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
             
             VStack(spacing: 20) {
-                ForEach(viewModel.restaurants.indices, id: \.self) { index in
-                    HCard(restaurant: viewModel.restaurants[index], index: index)
+                let randomRestaurants = viewModel.restaurants.shuffled().prefix(15)
+                ForEach(Array(randomRestaurants).indices, id: \.self) { index in
+                    NavigationLink(
+                        destination: DetailResInfoView(restaurant: viewModel.restaurants[index])
+                    ) {
+                        HCard(restaurant: viewModel.restaurants[index], index: index)
+                    }
                 }
             }
             .padding(20)
