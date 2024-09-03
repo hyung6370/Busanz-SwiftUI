@@ -18,7 +18,7 @@ struct DetailResInfoView: View {
                 if let restaurant = restaurant {
                     ZStack {
                         Rectangle()
-                            .fill(Color.customOrange)
+                            .fill(.linearGradient(colors: [Color.hCardColor3, Color.hCardColor2.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
                             .cornerRadius(15)
                             .frame(width: 360, height: 410)
                         
