@@ -72,26 +72,6 @@ struct DetailResInfoView: View {
                     }
                     .padding([.leading, .trailing], 15)
                     
-                    
-//                    VStack(alignment: .leading, spacing: 5) {
-//                        Text("운영 시간")
-//                            .font(.notosansBold16)
-//                            .padding(.leading, 3)
-//                        HStack(spacing: 4) {
-//                            Image(systemName: "clock")
-//                                .foregroundColor(.black)
-//                                .font(.system(size: 16))
-//                            DisclosureGroup("운영 시간", isExpanded: $isExpanded) {
-//                                Text(restaurant.usageDayWeekAndTime)
-//                                    .font(.notosansRegular14)
-//                            }
-//                            .padding(.bottom, 2)
-//                        }
-//                    }
-//                    .font(.notosansRegular16)
-//                    .padding([.leading, .trailing], 15)
-//                    .padding(.top, 10)
-                    
                     VStack(alignment: .leading, spacing: 5) {
                         Text("운영 시간")
                             .font(.notosansBold16)

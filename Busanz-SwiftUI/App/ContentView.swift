@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-//    @State private var selectedTab: Tab = .timer
     @AppStorage("selectedTab") var selectedTab: Tab = .timer
         
     var body: some View {
