@@ -10,6 +10,12 @@ import Combine
 
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .timer
+    
+    let backgroundGradient = LinearGradient(
+        colors: [Color("Background").opacity(0), Color("Background")],
+        startPoint: .top,
+        endPoint: .bottom
+    )
         
     var body: some View {
         ZStack {
@@ -35,7 +41,7 @@ struct ContentView: View {
             TabBar()
                 .offset(y: -24)
                 .background(
-                    LinearGradient(colors:[Color("Background").opacity(0), Color("Background")], startPoint: .top, endPoint: .bottom)
+                    backgroundGradient
                         .frame(height: 150)
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .allowsHitTesting(false)

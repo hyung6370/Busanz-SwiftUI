@@ -38,6 +38,9 @@ struct HCard: View {
                             IndicatorView()
                         }
                         .resizable()
+                        .cacheOriginalImage()
+                        .loadDiskFileSynchronously()
+                        .downsampling(size: CGSize(width: 300, height: 300))
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity)
                         .cornerRadius(15)

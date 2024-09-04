@@ -41,7 +41,7 @@ struct HomeView: View {
     }
 
     var content: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        LazyVStack(alignment: .leading, spacing: 0) {
             Text("Busan's Collections")
                 .font(.notosansBold32)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -49,7 +49,7 @@ struct HomeView: View {
             
             ScrollViewReader { scrollViewProxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    LazyHStack(spacing: 20) {
                         ForEach(viewModel.restaurants.indices, id: \.self) { index in
                             NavigationLink(
                                 destination: DetailResInfoView(restaurant: viewModel.restaurants[index])
@@ -78,7 +78,7 @@ struct HomeView: View {
                 .font(.notosansBold24)
                 .padding(.horizontal, 20)
             
-            VStack(spacing: 20) {
+            LazyVStack(spacing: 20) {
                 let randomRestaurants = viewModel.restaurants.shuffled().prefix(15)
                 ForEach(Array(randomRestaurants).indices, id: \.self) { index in
                     NavigationLink(

@@ -40,8 +40,9 @@ struct VCard: View {
                                 .padding(.top, 50)
                         }
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity)
+                        .cacheOriginalImage()
+                        .loadDiskFileSynchronously()
+                        .downsampling(size: CGSize(width: 300, height: 300))
                         .cornerRadius(15)
                         .clipped()
                 }
