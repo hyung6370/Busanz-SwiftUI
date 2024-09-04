@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.9.1)
   - IQKeyboardManagerSwift (7.1.1)
+  - Kingfisher (7.12.0)
   - lottie-ios (4.5.0)
   - NMapsGeometry (1.0.2)
   - NMapsMap (3.19.0):
@@ -23,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
+  - Kingfisher (~> 7.0)
   - lottie-ios
   - NMapsMap
   - RiveRuntime
@@ -37,6 +39,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - Kingfisher
     - lottie-ios
     - NMapsGeometry
     - NMapsMap
@@ -52,6 +55,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   IQKeyboardManagerSwift: d7f3d3a562c237a0e7335e657cd598c452f57f1b
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
   lottie-ios: a881093fab623c467d3bce374367755c272bdd59
   NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
   NMapsMap: 99c10429d93340780b6f88d3fc7c0a3850b43664
@@ -64,6 +68,6 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 94af17290b75c5ee269bcc7a1a1642656c607cc8
+PODFILE CHECKSUM: 98b799f84734e01227ef87ea45d5ab5e06766c52
 
 COCOAPODS: 1.15.2

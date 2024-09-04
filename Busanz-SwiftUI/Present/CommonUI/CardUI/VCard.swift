@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct VCard: View {
     var restaurant: Restaurant?
@@ -29,30 +30,20 @@ struct VCard: View {
                     .opacity(0.7)
   
                 if let imageURL = URL(string: restaurant.mainImgThumb) {
-                    AsyncImage(url: imageURL) { phase in
-                        switch phase {
-                        case .empty:
+                    KFImage(imageURL)
+                        .onSuccess { result in
+                            
+                        }
+                        .placeholder {
                             IndicatorView()
                                 .padding(.leading, 75)
                                 .padding(.top, 50)
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: .infinity)
-                                .cornerRadius(15)
-                                .clipped()
-                        case .failure:
-                            Image(systemName: "photo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: .infinity)
-                                .opacity(0.3)
-                                .cornerRadius(15)
-                        @unknown default:
-                            EmptyView()
                         }
-                    }
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .cornerRadius(15)
+                        .clipped()
                 }
                 else {
                     Image(systemName: "photo")

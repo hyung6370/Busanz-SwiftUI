@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HCard: View {
     var restaurant: Restaurant?
@@ -29,28 +30,18 @@ struct HCard: View {
                 }
                 Divider()
                 if let imageURL = URL(string: restaurant.mainImgNormal) {
-                    AsyncImage(url: imageURL) { phase in
-                        switch phase {
-                        case .empty:
-                            IndicatorView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(maxWidth: .infinity)
-                                .cornerRadius(15)
-                                .clipped()
-                        case .failure:
-                            Image(systemName: "photo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: .infinity)
-                                .opacity(0.3)
-                                .cornerRadius(15)
-                        @unknown default:
-                            EmptyView()
+                    KFImage(imageURL)
+                        .onSuccess { result in
+                            
                         }
-                    }
+                        .placeholder {
+                            IndicatorView()
+                        }
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .cornerRadius(15)
+                        .clipped()
                 }
                 else {
                     Image(systemName: "photo")
