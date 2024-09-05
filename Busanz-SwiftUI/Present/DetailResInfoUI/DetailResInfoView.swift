@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DetailResInfoView: View {
     var restaurant: Restaurant?
-    
     @State private var isExpanded: Bool = false
+    @EnvironmentObject var favoriteManager: FavoriteManager
     
     var body: some View {
         ScrollView {
@@ -44,6 +44,13 @@ struct DetailResInfoView: View {
                             else {
                                 Text("부산시 " + restaurant.addr1)
                                     .font(.notosansBold18)
+                            }
+                            Spacer()
+                            Button(action: {
+                                toggleFavorite(restaurant)
+                            }) {
+                                Image(systemName: favoriteManager.isFavorite(restaurant) ? "heart.fill" : "heart")
+                                    .foregroundColor(favoriteManager.isFavorite(restaurant) ? .red : .black)
                             }
                         }
                     }
@@ -121,6 +128,15 @@ struct DetailResInfoView: View {
                 }
             }
             .navigationTitle(restaurant?.title ?? "상세 정보")
+        }
+    }
+    
+    func toggleFavorite(_ restaurant: Restaurant) {
+        if favoriteManager.isFavorite(restaurant) {
+            favoriteManager.removeFavorite(restaurant)
+        }
+        else {
+            favoriteManager.addFavorite(restaurant)
         }
     }
 }

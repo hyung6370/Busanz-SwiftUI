@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct Busanz_SwiftUIApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var favoriteManager = FavoriteManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(favoriteManager)
         }
     }
 }
