@@ -82,9 +82,9 @@ struct HomeView: View {
                 let randomRestaurants = viewModel.restaurants.shuffled().prefix(15)
                 ForEach(Array(randomRestaurants).indices, id: \.self) { index in
                     NavigationLink(
-                        destination: DetailResInfoView(restaurant: viewModel.restaurants[index])
+                        destination: DetailResInfoView(restaurant: randomRestaurants[index])
                     ) {
-                        HCard(restaurant: viewModel.restaurants[index], index: index)
+                        HCard(restaurant: randomRestaurants[index], index: index)
                     }
                 }
             }
