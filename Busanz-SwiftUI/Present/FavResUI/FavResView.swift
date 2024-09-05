@@ -18,9 +18,11 @@ struct FavResView: View {
                 Color("Background").ignoresSafeArea()
                 
                 if favoriteManager.favoriteRestaurants.isEmpty {
-                    Text("My Favorites")
-                        .font(.notosansBold30)
+                    Text("즐겨찾는 맛집이 없습니다.")
+                        .font(.juaRegualr30)
                         .padding()
+                    Text("나만의 맛집을 추가해보세요! 😉")
+                        .font(.juaRegualr24)
                 }
                 else {
                     ScrollView {
