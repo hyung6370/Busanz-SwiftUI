@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct SearchView: View {
-    @StateObject var coordinator = Coordinator()
+    @StateObject var coordinator = Coordinator.shared
     @StateObject private var viewModel = MapViewModel()
     
     @State private var selectedGugun: String? = nil

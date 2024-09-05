@@ -28,19 +28,24 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
     
     override init() {
         super.init()
-        
+        setupMapView()
+        addCustomControls()
+    }
+    
+    deinit {
+        view.mapView.positionMode = .disabled
+        view.mapView.touchDelegate = nil
+        view.removeFromSuperview()
+    }
+    
+    private func setupMapView() {
         view.mapView.positionMode = .direction
         view.mapView.isNightModeEnabled = true
-        
-        view.showLocationButton = false // 현위치 버튼
-        view.showZoomControls = true   // 줌 버튼
-        view.showCompass = false        // 나침반
-        
+        view.showLocationButton = false
+        view.showZoomControls = true
+        view.showCompass = false
         view.mapView.logoAlign = .leftBottom
         view.mapView.logoMargin = UIEdgeInsets(top: 0, left: 25, bottom: 75, right: 0)
-        
-        addCustomControls()
-
         view.mapView.addCameraDelegate(delegate: self)
         view.mapView.touchDelegate = self
     }
@@ -82,8 +87,8 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
             marker.mapView = view.mapView // 마커를 맵에 추가
             
             // 마커 클릭 이벤트 처리
-            marker.touchHandler = { [weak self] (overlay) -> Bool in
-                guard let self = self else { return true }
+            marker.touchHandler = { [weak self, weak marker] (overlay) -> Bool in
+                guard let self = self, let marker = marker else { return true }
                 
                 if let currentInfoWindow = self.currentInfoWindow {
                     currentInfoWindow.close()
@@ -96,8 +101,9 @@ class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapV
                 infoWindow.open(with: marker)
                 self.currentInfoWindow = infoWindow
                 
-                infoWindow.touchHandler = { [weak self] (overlay) -> Bool in
+                infoWindow.touchHandler = { [weak self, weak marker] (overlay) -> Bool in
                     guard let self = self else { return true }
+                    
                     DispatchQueue.main.async {
                         self.selectedRestaurant = restaurant
                     }

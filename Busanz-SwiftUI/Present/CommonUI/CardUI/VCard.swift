@@ -44,7 +44,6 @@ struct VCard: View {
                         .loadDiskFileSynchronously()
                         .downsampling(size: CGSize(width: 300, height: 300))
                         .cornerRadius(15)
-                        .clipped()
                 }
                 else {
                     Image(systemName: "photo")

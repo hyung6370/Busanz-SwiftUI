@@ -44,7 +44,7 @@ class MapViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
-                print(restaurants)
+//                print(restaurants)
                 self?.applyFilters()
             }
             .store(in: &cancellables)
@@ -56,7 +56,7 @@ class MapViewModel: ObservableObject {
         searchText = ""
         filteredRestaurants = restaurants
         
-        Coordinator.shared.addMarkers(for: restaurants)
+//        Coordinator.shared.addMarkers(for: restaurants)
     }
     
     func filterRestaurants(by gugun: String?) {
