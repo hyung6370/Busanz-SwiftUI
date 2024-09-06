@@ -67,7 +67,12 @@ struct SearchView: View {
                 
                 if let selectedRestaurant = coordinator.selectedRestaurant {
                     NavigationLink(
-                        destination: DetailResInfoView(restaurant: selectedRestaurant),
+                        destination: DetailResInfoView(
+                            viewModel: DetailResInfoViewModel(
+                                restaurant: selectedRestaurant,
+                                favoriteManager: FavoriteManager()
+                            )
+                        ),
                         isActive: $isDetailViewActive, // 활성화 상태 바인딩
                         label: { EmptyView() }
                     )
@@ -107,7 +112,12 @@ struct SearchView: View {
             }
             .navigationDestination(isPresented: $isDetailViewActive) {
                 if let selectedRestaurant = coordinator.selectedRestaurant {
-                    DetailResInfoView(restaurant: selectedRestaurant)
+                    DetailResInfoView(
+                        viewModel: DetailResInfoViewModel(
+                            restaurant: selectedRestaurant,
+                            favoriteManager: FavoriteManager()
+                        )
+                    )
                 }
             }
         }

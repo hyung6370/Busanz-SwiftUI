@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct DetailResInfoView: View {
-    var restaurant: Restaurant?
-    @State private var isExpanded: Bool = false
-    @EnvironmentObject var favoriteManager: FavoriteManager
+//    var restaurant: Restaurant?
+//    @State private var isExpanded: Bool = false
+//    @EnvironmentObject var favoriteManager: FavoriteManager
+    @StateObject var viewModel: DetailResInfoViewModel
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if let restaurant = restaurant {
+                if let restaurant = viewModel.restaurant {
                     ZStack {
                         Rectangle()
                             .fill(.linearGradient(colors: [Color.hCardColor3, Color.hCardColor2.opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -47,10 +48,10 @@ struct DetailResInfoView: View {
                             }
                             Spacer()
                             Button(action: {
-                                toggleFavorite(restaurant)
+                                viewModel.toggleFavorite()
                             }) {
-                                Image(systemName: favoriteManager.isFavorite(restaurant) ? "heart.fill" : "heart")
-                                    .foregroundColor(favoriteManager.isFavorite(restaurant) ? .red : .black)
+                                Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
+                                    .foregroundColor(viewModel.isFavorite ? .red : .black)
                             }
                         }
                     }
@@ -97,16 +98,16 @@ struct DetailResInfoView: View {
                                     Text("운영 시간")
                                         .font(.notosansBold16)
                                     Spacer()
-                                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                    Image(systemName: viewModel.isExpanded ? "chevron.up" : "chevron.down")
                                         .foregroundColor(.black)
                                 }
                                 .onTapGesture {
                                     withAnimation {
-                                        isExpanded.toggle()
+                                        viewModel.isExpanded.toggle()
                                     }
                                 }
                                 
-                                if isExpanded {
+                                if viewModel.isExpanded {
                                     Text(restaurant.usageDayWeekAndTime)
                                         .font(.notosansRegular14)
                                         .padding(.top, 2)
@@ -127,37 +128,31 @@ struct DetailResInfoView: View {
                     Text("맛집 정보를 불러올 수 없습니다.")
                 }
             }
-            .navigationTitle(restaurant?.title ?? "상세 정보")
-        }
-    }
-    
-    func toggleFavorite(_ restaurant: Restaurant) {
-        if favoriteManager.isFavorite(restaurant) {
-            favoriteManager.removeFavorite(restaurant)
-        }
-        else {
-            favoriteManager.addFavorite(restaurant)
+            .navigationTitle(viewModel.restaurant?.title ?? "상세 정보")
         }
     }
 }
 
 #Preview {
-    DetailResInfoView(restaurant: Restaurant(
-        mainTitle: "Sample Restaurant",
-        gugunNm: "Haeundae",
-        lat: 35.1587,
-        lng: 129.1604,
-        place: "Sample Place",
-        title: "Sample Title",
-        subtitle: "Sample Subtitle",
-        addr1: "Sample Address 1",
-        addr2: "Sample Address 2",
-        contactTel: "010-1234-5678",
-        homepageUrl: "http://example.com",
-        usageDayWeekAndTime: "9 AM - 10 PM",
-        rprsntvMenu: "Sample Menu",
-        mainImgNormal: "sample_image",
-        mainImgThumb: "sample_thumb",
-        itemContent: "Sample item content"
+    DetailResInfoView(viewModel: DetailResInfoViewModel(
+        restaurant: Restaurant(
+            mainTitle: "Sample Restaurant",
+            gugunNm: "Haeundae",
+            lat: 35.1587,
+            lng: 129.1604,
+            place: "Sample Place",
+            title: "Sample Title",
+            subtitle: "Sample Subtitle",
+            addr1: "Sample Address 1",
+            addr2: "Sample Address 2",
+            contactTel: "010-1234-5678",
+            homepageUrl: "http://example.com",
+            usageDayWeekAndTime: "9 AM - 10 PM",
+            rprsntvMenu: "Sample Menu",
+            mainImgNormal: "sample_image",
+            mainImgThumb: "sample_thumb",
+            itemContent: "Sample item content"
+        ),
+        favoriteManager: FavoriteManager()
     ))
 }

@@ -52,7 +52,12 @@ struct HomeView: View {
                     LazyHStack(spacing: 20) {
                         ForEach(viewModel.restaurants.indices, id: \.self) { index in
                             NavigationLink(
-                                destination: DetailResInfoView(restaurant: viewModel.restaurants[index])
+                                destination: DetailResInfoView(
+                                    viewModel: DetailResInfoViewModel(
+                                        restaurant: viewModel.restaurants[index],
+                                        favoriteManager: FavoriteManager()
+                                    )
+                                )
                             ) {
                                 VCard(restaurant: viewModel.restaurants[index], index: index)
                             }
@@ -82,7 +87,12 @@ struct HomeView: View {
                 let randomRestaurants = viewModel.restaurants.shuffled().prefix(15)
                 ForEach(Array(randomRestaurants).indices, id: \.self) { index in
                     NavigationLink(
-                        destination: DetailResInfoView(restaurant: randomRestaurants[index])
+                        destination: DetailResInfoView(
+                            viewModel: DetailResInfoViewModel(
+                                restaurant: randomRestaurants[index],
+                                favoriteManager: FavoriteManager()
+                            )
+                        )
                     ) {
                         HCard(restaurant: randomRestaurants[index], index: index)
                     }

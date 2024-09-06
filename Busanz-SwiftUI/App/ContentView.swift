@@ -26,7 +26,7 @@ struct ContentView: View {
                 case .search:
                     SearchView()
                 case .user:
-                    FavResView()
+                    FavResView(viewModel: FavResViewModel(favoriteManager: FavoriteManager()))
                 }
             }
             .safeAreaInset(edge: .bottom) {
