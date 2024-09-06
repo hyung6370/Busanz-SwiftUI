@@ -10,6 +10,7 @@ import Combine
 
 struct ContentView: View {
     @AppStorage("selectedTab") var selectedTab: Tab = .timer
+    @StateObject var tabBarVisibility = TabBarVisibility()
     
     let backgroundGradient = LinearGradient(
         colors: [Color("Background").opacity(0), Color("Background")],
@@ -38,16 +39,19 @@ struct ContentView: View {
             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .ignoresSafeArea()
             
-            TabBar()
-                .offset(y: -24)
-                .background(
-                    backgroundGradient
-                        .frame(height: 150)
-                        .frame(maxHeight: .infinity, alignment: .bottom)
-                        .allowsHitTesting(false)
-                )
-                .ignoresSafeArea()
+            if tabBarVisibility.isVisible {
+                TabBar()
+                    .offset(y: -24)
+                    .background(
+                        backgroundGradient
+                            .frame(height: 150)
+                            .frame(maxHeight: .infinity, alignment: .bottom)
+                            .allowsHitTesting(false)
+                    )
+                    .ignoresSafeArea()
+            }
         }
+        .environmentObject(tabBarVisibility)
     }
 }
 

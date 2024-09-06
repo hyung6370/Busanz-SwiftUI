@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailResInfoView: View {
     @StateObject var viewModel: DetailResInfoViewModel
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var tabBarVisibility: TabBarVisibility
     
     var body: some View {
         ZStack {
@@ -56,6 +57,7 @@ struct DetailResInfoView: View {
                                 }) {
                                     Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
                                         .foregroundColor(viewModel.isFavorite ? .red : (colorScheme == .dark ? .white : .black))
+                                        .frame(width: 35, height: 35)
                                 }
                             }
                         }
@@ -140,7 +142,12 @@ struct DetailResInfoView: View {
                 .navigationTitle(viewModel.restaurant?.title ?? "상세 정보")
             }
         }
-        
+        .onAppear {
+            tabBarVisibility.isVisible = false
+        }
+        .onDisappear {
+            tabBarVisibility.isVisible = true
+        }
     }
 }
 
