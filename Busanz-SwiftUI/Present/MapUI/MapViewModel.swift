@@ -55,8 +55,6 @@ class MapViewModel: ObservableObject {
         selectedCount = Int.max
         searchText = ""
         filteredRestaurants = restaurants
-        
-//        Coordinator.shared.addMarkers(for: restaurants)
     }
     
     func filterRestaurants(by gugun: String?) {

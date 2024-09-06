@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct DetailResInfoView: View {
-//    var restaurant: Restaurant?
-//    @State private var isExpanded: Bool = false
-//    @EnvironmentObject var favoriteManager: FavoriteManager
     @StateObject var viewModel: DetailResInfoViewModel
     
     var body: some View {
