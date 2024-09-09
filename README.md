@@ -5,7 +5,7 @@ Naver Maps API 와 Open API를 활용하여 만든 앱입니다 💙💜
 
 <div align="center">
   
-  <img width="408" alt="스크린샷 2024-09-09 오전 9 30 35" src="https://github.com/user-attachments/assets/197ddc86-5411-41dd-96ec-a299569062ee">
+  <img width="800" alt="스크린샷 2024-09-09 오전 9 30 35" src="https://github.com/user-attachments/assets/197ddc86-5411-41dd-96ec-a299569062ee">
 
 </div>
 
@@ -16,7 +16,7 @@ Naver Maps API 와 Open API를 활용하여 만든 앱입니다 💙💜
 <br /><hr />
 
 ### 📌 화면 구성📱
-<img width="408" alt="스크린샷 2024-09-09 오전 9 10 19" src="https://github.com/user-attachments/assets/88d0dac4-7b3e-4cd3-a42b-860f12932d80">
+<img width="1000" alt="스크린샷 2024-09-09 오전 9 10 19" src="https://github.com/user-attachments/assets/88d0dac4-7b3e-4cd3-a42b-860f12932d80">
 
 
 <br /><hr />
