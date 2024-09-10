@@ -41,6 +41,17 @@
                ReferencedContainer = "container:Busanz-SwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F6E35DFC2C8FD12900935AB5"
+               BuildableName = "Busanz-SwiftUIUITests.xctest"
+               BlueprintName = "Busanz-SwiftUIUITests"
+               ReferencedContainer = "container:Busanz-SwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

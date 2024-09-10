@@ -52,6 +52,8 @@
 		F69931E72C69F323003141A8 /* FloatingFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69931E62C69F323003141A8 /* FloatingFilterView.swift */; };
 		F69931EA2C6AF9D9003141A8 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69931E92C6AF9D9003141A8 /* Font+.swift */; };
 		F6E35DF32C8FCCAC00935AB5 /* Busanz_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E35DF22C8FCCAC00935AB5 /* Busanz_SwiftUITests.swift */; };
+		F6E35E002C8FD12900935AB5 /* Busanz_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E35DFF2C8FD12900935AB5 /* Busanz_SwiftUIUITests.swift */; };
+		F6E35E022C8FD12900935AB5 /* Busanz_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E35E012C8FD12900935AB5 /* Busanz_SwiftUIUITestsLaunchTests.swift */; };
 		F6EE3F692C65950B0035B066 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F682C65950B0035B066 /* MapViewModel.swift */; };
 		F6EE3F6B2C65951A0035B066 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6A2C65951A0035B066 /* Restaurant.swift */; };
 		F6EE3F6D2C659D1D0035B066 /* BusanRestaurantKorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */; };
@@ -65,6 +67,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		F6E35DF42C8FCCAC00935AB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6344B102C60B268002857CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6344B172C60B268002857CC;
+			remoteInfo = "Busanz-SwiftUI";
+		};
+		F6E35E032C8FD12900935AB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F6344B102C60B268002857CC /* Project object */;
 			proxyType = 1;
@@ -124,6 +133,9 @@
 		F69931E92C6AF9D9003141A8 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		F6E35DF02C8FCCAC00935AB5 /* Busanz-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Busanz-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E35DF22C8FCCAC00935AB5 /* Busanz_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUITests.swift; sourceTree = "<group>"; };
+		F6E35DFD2C8FD12900935AB5 /* Busanz-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Busanz-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E35DFF2C8FD12900935AB5 /* Busanz_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIUITests.swift; sourceTree = "<group>"; };
+		F6E35E012C8FD12900935AB5 /* Busanz_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Busanz_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F6EE3F682C65950B0035B066 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F6EE3F6A2C65951A0035B066 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		F6EE3F6C2C659D1D0035B066 /* BusanRestaurantKorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusanRestaurantKorManager.swift; sourceTree = "<group>"; };
@@ -145,6 +157,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F6E35DED2C8FCCAC00935AB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E35DFA2C8FD12900935AB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,6 +222,7 @@
 				F6344B342C60B747002857CC /* .gitignore */,
 				F6344B1A2C60B268002857CC /* Busanz-SwiftUI */,
 				F6E35DF12C8FCCAC00935AB5 /* Busanz-SwiftUITests */,
+				F6E35DFE2C8FD12900935AB5 /* Busanz-SwiftUIUITests */,
 				F6344B192C60B268002857CC /* Products */,
 				710097ECF9E82AE5AE67AA37 /* Pods */,
 				B26403227BA524CE621A9A9F /* Frameworks */,
@@ -214,6 +234,7 @@
 			children = (
 				F6344B182C60B268002857CC /* Busanz-SwiftUI.app */,
 				F6E35DF02C8FCCAC00935AB5 /* Busanz-SwiftUITests.xctest */,
+				F6E35DFD2C8FD12900935AB5 /* Busanz-SwiftUIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -427,6 +448,15 @@
 			path = "Busanz-SwiftUITests";
 			sourceTree = "<group>";
 		};
+		F6E35DFE2C8FD12900935AB5 /* Busanz-SwiftUIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F6E35DFF2C8FD12900935AB5 /* Busanz_SwiftUIUITests.swift */,
+				F6E35E012C8FD12900935AB5 /* Busanz_SwiftUIUITestsLaunchTests.swift */,
+			);
+			path = "Busanz-SwiftUIUITests";
+			sourceTree = "<group>";
+		};
 		F6EEE6F82C8AF5DE00958D62 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +522,24 @@
 			productReference = F6E35DF02C8FCCAC00935AB5 /* Busanz-SwiftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F6E35DFC2C8FD12900935AB5 /* Busanz-SwiftUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6E35E052C8FD12900935AB5 /* Build configuration list for PBXNativeTarget "Busanz-SwiftUIUITests" */;
+			buildPhases = (
+				F6E35DF92C8FD12900935AB5 /* Sources */,
+				F6E35DFA2C8FD12900935AB5 /* Frameworks */,
+				F6E35DFB2C8FD12900935AB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6E35E042C8FD12900935AB5 /* PBXTargetDependency */,
+			);
+			name = "Busanz-SwiftUIUITests";
+			productName = "Busanz-SwiftUIUITests";
+			productReference = F6E35DFD2C8FD12900935AB5 /* Busanz-SwiftUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -506,6 +554,10 @@
 						CreatedOnToolsVersion = 15.3;
 					};
 					F6E35DEF2C8FCCAC00935AB5 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = F6344B172C60B268002857CC;
+					};
+					F6E35DFC2C8FD12900935AB5 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = F6344B172C60B268002857CC;
 					};
@@ -526,6 +578,7 @@
 			targets = (
 				F6344B172C60B268002857CC /* Busanz-SwiftUI */,
 				F6E35DEF2C8FCCAC00935AB5 /* Busanz-SwiftUITests */,
+				F6E35DFC2C8FD12900935AB5 /* Busanz-SwiftUIUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -559,6 +612,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F6E35DEE2C8FCCAC00935AB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E35DFB2C8FD12900935AB5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -674,6 +734,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6E35DF92C8FD12900935AB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E35E002C8FD12900935AB5 /* Busanz_SwiftUIUITests.swift in Sources */,
+				F6E35E022C8FD12900935AB5 /* Busanz_SwiftUIUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -681,6 +750,11 @@
 			isa = PBXTargetDependency;
 			target = F6344B172C60B268002857CC /* Busanz-SwiftUI */;
 			targetProxy = F6E35DF42C8FCCAC00935AB5 /* PBXContainerItemProxy */;
+		};
+		F6E35E042C8FD12900935AB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6344B172C60B268002857CC /* Busanz-SwiftUI */;
+			targetProxy = F6E35E032C8FD12900935AB5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -912,6 +986,50 @@
 			};
 			name = Release;
 		};
+		F6E35E062C8FD12900935AB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DVWGZFH6N;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emptyhead.Busanz-SwiftUIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Busanz-SwiftUI";
+			};
+			name = Debug;
+		};
+		F6E35E072C8FD12900935AB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7DVWGZFH6N;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.emptyhead.Busanz-SwiftUIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Busanz-SwiftUI";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -938,6 +1056,15 @@
 			buildConfigurations = (
 				F6E35DF62C8FCCAC00935AB5 /* Debug */,
 				F6E35DF72C8FCCAC00935AB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E35E052C8FD12900935AB5 /* Build configuration list for PBXNativeTarget "Busanz-SwiftUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E35E062C8FD12900935AB5 /* Debug */,
+				F6E35E072C8FD12900935AB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
