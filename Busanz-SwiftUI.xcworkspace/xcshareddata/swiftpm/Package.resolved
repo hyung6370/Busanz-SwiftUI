@@ -1,0 +1,15 @@
+{
+  "originHash" : "2e351b3057eca00d5e6dbcc0105bb01fcfdcb3f99abeab24371a168443a87e38",
+  "pins" : [
+    {
+      "identity" : "spiderversify",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Jager-yoo/Spiderversify",
+      "state" : {
+        "branch" : "main",
+        "revision" : "65b5933b5b477a1bf6b2980cb174a7eaae840ecb"
+      }
+    }
+  ],
+  "version" : 3
+}

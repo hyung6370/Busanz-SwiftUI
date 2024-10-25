@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Busanz_SwiftUI
 
 final class Busanz_SwiftUITests: XCTestCase {
 
